@@ -29,7 +29,7 @@ RUN a2enmod rewrite
 #Set up debugger
 #RUN echo "zend_extension=xdebug.so" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
 RUN echo "xdebug.remote_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
-RUN echo "xdebug.remote_host=172.16.11.142" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
+RUN echo "xdebug.remote_host=192.168.1.16" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
 RUN echo "xdebug.remote_port=9000" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
 RUN echo ";xdebug.profiler_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
 RUN echo ";xdebug.profiler_output_dir=/var/www/profiling" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
