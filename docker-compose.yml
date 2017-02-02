@@ -5,8 +5,8 @@ services:
       context: ./docker/apache
       dockerfile: Dockerfile
     ports:
-      - "80:80"
-      - "443:443"
+      - "84:80"
+      - "444:443"
     links:
       - mysql2
     volumes:
