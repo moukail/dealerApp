@@ -15,6 +15,7 @@ apt-get -y install git mysql-server \
 
 sed -i "s/^bind-address/#bind-address/" /etc/mysql/my.cnf
 mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION; FLUSH PRIVILEGES; SET GLOBAL max_connect_errors=10000;"
+mysql -u root -proot -e "CREATE DATABASE dealerapp;"
 sudo /etc/init.d/mysql restart
 
 cp /vagrant/vagrant/nginx/default.conf /etc/nginx/sites-available/default

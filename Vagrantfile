@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
   config.vm.provision :shell, path: "vagrant/nginx/bootstrap.sh"
-  config.vm.network "public_network", ip: "172.16.11.143"
+  config.vm.network "forwarded_port", guest: 80, host: 8080
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]

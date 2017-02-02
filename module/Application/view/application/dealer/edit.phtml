@@ -1,0 +1,67 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ismail
+ * Date: 2-2-17
+ * Time: 14:23
+ */
+
+$title = 'Edit dealer';
+$this->headTitle($title);
+?>
+    <h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$name = $form->get('name');
+$name->setAttribute('class', 'form-control');
+$name->setAttribute('placeholder', 'Dealer name');
+
+$city = $form->get('city');
+$city->setAttribute('class', 'form-control');
+$city->setAttribute('placeholder', 'City');
+
+$meta1 = $form->get('meta1');
+$meta1->setAttribute('class', 'form-control');
+$meta1->setAttribute('placeholder', 'Meta1');
+
+$meta2 = $form->get('meta2');
+$meta2->setAttribute('class', 'form-control');
+$meta2->setAttribute('placeholder', 'Meta2');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('name', [
+    'action' => 'edit',
+    'id'     => $id,
+]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+    <div class="form-group">
+        <?= $this->formLabel($name) ?>
+        <?= $this->formElement($name) ?>
+        <?= $this->formElementErrors()->render($name, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($city) ?>
+        <?= $this->formElement($city) ?>
+        <?= $this->formElementErrors()->render($city, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($mata1) ?>
+        <?= $this->formElement($mata1) ?>
+        <?= $this->formElementErrors()->render($mata1, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($mata2) ?>
+        <?= $this->formElement($mata2) ?>
+        <?= $this->formElementErrors()->render($mata2, ['class' => 'help-block']) ?>
+    </div>
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

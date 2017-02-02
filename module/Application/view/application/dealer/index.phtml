@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: ismail
+ * Date: 2-2-17
+ * Time: 13:54
+ */
+
+$title = 'Dealers';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('dealer', ['action' => 'add']) ?>">Add new dealer</a>
+</p>
+<p>
+    <a href="<?= $this->url('dealer', ['action' => 'import']) ?>">Import dealers</a>
+</p>
+<p>
+    <a href="<?= $this->url('dealer', ['action' => 'export']) ?>">Export dealers</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Meta1</th>
+        <th>Meta2</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($dealers as $dealer) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($dealer->name) ?></td>
+            <td><?= $this->escapeHtml($dealer->city) ?></td>
+            <td><?= $this->escapeHtml($dealer->meta1) ?></td>
+            <td><?= $this->escapeHtml($dealer->meta2) ?></td>
+            <td>
+                <a href="<?= $this->url('dealer', ['action' => 'edit', 'id' => $dealer->id]) ?>">Edit</a>
+                <a href="<?= $this->url('dealer', ['action' => 'delete', 'id' => $dealer->id]) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
