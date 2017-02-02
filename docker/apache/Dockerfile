@@ -1,0 +1,53 @@
+FROM ubuntu:16.04
+
+RUN apt-get update
+RUN apt-get -y upgrade
+
+RUN apt-get -y install openssh-client \
+    sshpass \
+    git \
+    unzip \
+    curl \
+    apache2 \
+    php7.0 \
+    libapache2-mod-php7.0 \
+    php-mysql \
+    php-gd \
+    php-cgi \
+    php-curl \
+    php-xdebug \
+    php-xml \
+    php-zip \
+    php-mbstring
+
+RUN curl -sS https://getcomposer.org/installer \
+      | php -- --install-dir=/usr/local/bin --filename=composer
+
+RUN a2enmod php7.0
+RUN a2enmod rewrite
+
+#Set up debugger
+#RUN echo "zend_extension=xdebug.so" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
+RUN echo "xdebug.remote_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
+RUN echo "xdebug.remote_host=172.16.11.142" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
+RUN echo "xdebug.remote_port=9000" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
+RUN echo ";xdebug.profiler_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
+RUN echo ";xdebug.profiler_output_dir=/var/www/profiling" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
+RUN echo "xdebug.idekey=PHPSTORM" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
+RUN echo "xdebug.remote_autostart=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_LOCK_DIR /var/lock/apache2
+ENV APACHE_PID_FILE /var/run/apache2.pid
+
+EXPOSE 80
+
+#ADD public /var/www/site
+
+WORKDIR /var/www
+
+ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+
+CMD /usr/sbin/apache2ctl -D FOREGROUND
