@@ -12,22 +12,22 @@
  */
 
 return [
-    'doctrine' => array(
-        'connection' => array(
-            'orm_default' => array(
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
                 'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
-                'params' => array(
-                    'host'     => 'localhost',
+                'params' => [
+                    'host'     => 'mysql2',
                     'port'     => '3306',
                     'user'     => 'root',
                     'password' => 'root',
                     'dbname'   => 'dealerapp',
-                    'driverOptions' => array(
+                    'driverOptions' => [
                         1002 => 'SET NAMES utf8'
-                    ),
-                )
-            )
-        ),
+                    ],
+                ]
+            ]
+        ],
 
         'configuration' => array(
             'orm_default' => array(
@@ -37,14 +37,24 @@ return [
                 'hydration_cache'   => 'array',
                 'driver'            => 'orm_default',
                 'generate_proxies'  => true,
-                'proxy_dir'         => 'data/DoctrineORMModule/Proxy',
+                'proxy_dir'         => '/../../data/proxy',
                 'proxy_namespace'   => 'DoctrineORMModule\Proxy',
                 'filters'           => array()
             )
         ),
 
+        'migrations_configuration' => array(
+            'orm_default' => array(
+                'directory' => '/../../module/Application/config/migrations',
+                'name'      => 'Doctrine Database Migrations',
+                'namespace' => 'Nieuws\Migrations',
+                'table'     => 'migrations',
+                'column'    => 'version',
+            ),
+        ),
+
         'driver' => array(
-            'Crawler_Driver' => array(
+            'Dealer_Driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => array(
@@ -54,7 +64,7 @@ return [
             'orm_default' => array(
                 'class'   => 'Doctrine\ORM\Mapping\Driver\DriverChain',
                 'drivers' => array(
-                    'Crawler\Entity' =>  'Crawler_Driver'
+                    'Application\Entity' =>  'Dealer_Driver'
                 )
             ),
         ),
@@ -78,5 +88,5 @@ return [
             'orm_default' => array()
         ),
 
-    ),
+    ],
 ];
