@@ -30,7 +30,7 @@ $meta2->setAttribute('placeholder', 'Meta2');
 $submit = $form->get('submit');
 $submit->setAttribute('class', 'btn btn-primary');
 
-$form->setAttribute('action', $this->url('name', [
+$form->setAttribute('action', $this->url('dealer', [
     'action' => 'edit',
     'id'     => $id,
 ]));
@@ -51,15 +51,15 @@ echo $this->form()->openTag($form);
     </div>
 
     <div class="form-group">
-        <?= $this->formLabel($mata1) ?>
-        <?= $this->formElement($mata1) ?>
-        <?= $this->formElementErrors()->render($mata1, ['class' => 'help-block']) ?>
+        <?= $this->formLabel($meta1) ?>
+        <?= $this->formElement($meta1) ?>
+        <?= $this->formElementErrors()->render($meta1, ['class' => 'help-block']) ?>
     </div>
 
     <div class="form-group">
-        <?= $this->formLabel($mata2) ?>
-        <?= $this->formElement($mata2) ?>
-        <?= $this->formElementErrors()->render($mata2, ['class' => 'help-block']) ?>
+        <?= $this->formLabel($meta2) ?>
+        <?= $this->formElement($meta2) ?>
+        <?= $this->formElementErrors()->render($meta2, ['class' => 'help-block']) ?>
     </div>
 <?php
 echo $this->formSubmit($submit);

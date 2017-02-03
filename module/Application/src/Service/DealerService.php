@@ -29,15 +29,17 @@ class DealerService
     }
 
 
+    /**
+     * @param Dealer $dealer
+     */
     public function saveDealer($dealer)
     {
-        $dealer = $this->getEntityManager()->getRepository('Application\Entity\Dealer')->findOneBy(array('id' => $dealer->id));
-        if (!$dealer) {
-            $dealer = new Dealer();
-            $this->getEntityManager()->persist($dealer);
+        $dealer2 = $this->entitymanager->getRepository('Application\Entity\Dealer')->findOneBy(array('id' => $dealer->getId()));
+        if (!$dealer2) {
+            $this->entitymanager->persist($dealer);
         }
 
-        $this->getEntityManager()->flush();
+        $this->entitymanager->flush();
     }
 
     public function deleteDealer($id)

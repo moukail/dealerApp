@@ -4,13 +4,17 @@ services:
     build:
       context: ./docker/apache
       dockerfile: Dockerfile
+    container_name: web2
     ports:
       - "84:80"
       - "444:443"
+      - "2222:22"
     links:
       - mysql2
     volumes:
       - .:/var/www
+      - ~/.ssh:/root/.ssh
+    tty: true
 
   mysql2:
     image: mysql:5.7.17
@@ -21,3 +25,6 @@ services:
       - ./mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dealerapp
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root

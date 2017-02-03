@@ -8,7 +8,11 @@
 
 namespace Application\Controller;
 
+use Application\Entity\Dealer;
+use Application\Form\DealerForm;
 use Application\Service\DealerService;
+use PHPExcel;
+use PHPExcel_IOFactory;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -57,7 +61,6 @@ class DealerController extends AbstractActionController
         $dealer->exchangeArray($form->getData());
         $this->dealerService->saveDealer($dealer);
         return $this->redirect()->toRoute('dealer');
-
     }
 
     public function editAction()
@@ -68,9 +71,6 @@ class DealerController extends AbstractActionController
             return $this->redirect()->toRoute('dealer', ['action' => 'add']);
         }
 
-        // Retrieve the album with the specified id. Doing so raises
-        // an exception if the album is not found, which should result
-        // in redirecting to the landing page.
         try {
             $dealer = $this->dealerService->getDealer($id);
         } catch (\Exception $e) {
@@ -98,7 +98,7 @@ class DealerController extends AbstractActionController
         $this->dealerService->saveDealer($dealer);
 
         // Redirect to album list
-        return $this->redirect()->toRoute('album', ['action' => 'index']);
+        return $this->redirect()->toRoute('dealer', ['action' => 'index']);
     }
 
     public function deleteAction()
@@ -127,4 +127,30 @@ class DealerController extends AbstractActionController
         ];
     }
 
+    public function importAction()
+    {
+
+    }
+
+    public function exportAction()
+    {
+        $objPHPExcel = new PHPExcel();
+        $objPHPExcel->getActiveSheet()->setCellValue( 'B8', 'Some value' );
+
+        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+        ob_start();
+        $objWriter->save('php://output');
+        $excelOutput = ob_get_clean();
+
+        $response = $this->getEvent()->getResponse();
+        $response->getHeaders()->clearHeaders()->addHeaders( array(
+            'Pragma' => 'public',
+            'Content-Type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'attachment; filename="test.xls"',
+            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+            'Content-Transfer-Encoding' => 'binary',
+        ) );
+        $response->setContent($excelOutput);
+        return $response;
+    }
 }

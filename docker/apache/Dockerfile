@@ -1,11 +1,10 @@
 FROM ubuntu:16.04
+MAINTAINER Ismail Moukafih <info@moukafih.nl>
 
 RUN apt-get update
 RUN apt-get -y upgrade
 
-RUN apt-get -y install openssh-client \
-    sshpass \
-    git \
+RUN apt-get -y install git \
     unzip \
     curl \
     apache2 \
@@ -14,10 +13,12 @@ RUN apt-get -y install openssh-client \
     php-mysql \
     php-gd \
     php-cgi \
+    php-cli \
     php-curl \
     php-xdebug \
     php-xml \
     php-zip \
+    php-intl \
     php-mbstring
 
 RUN curl -sS https://getcomposer.org/installer \
@@ -29,7 +30,7 @@ RUN a2enmod rewrite
 #Set up debugger
 #RUN echo "zend_extension=xdebug.so" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
 RUN echo "xdebug.remote_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
-RUN echo "xdebug.remote_host=192.168.1.16" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
+RUN echo "xdebug.remote_host=172.16.1.176" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
 RUN echo "xdebug.remote_port=9000" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
 RUN echo ";xdebug.profiler_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
 RUN echo ";xdebug.profiler_output_dir=/var/www/profiling" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
@@ -38,7 +39,7 @@ RUN echo "xdebug.remote_autostart=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.in
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_LOG_DIR /var/www
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
