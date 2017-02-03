@@ -28,15 +28,16 @@ $this->headTitle($title);
         <th>Meta2</th>
         <th>&nbsp;</th>
     </tr>
-    <?php foreach ($dealers as $dealer) : ?>
+    <?php /** @var \Application\Entity\Dealer $dealer */
+    foreach ($dealers as $dealer) : ?>
         <tr>
-            <td><?= $this->escapeHtml($dealer->name) ?></td>
-            <td><?= $this->escapeHtml($dealer->city) ?></td>
-            <td><?= $this->escapeHtml($dealer->meta1) ?></td>
-            <td><?= $this->escapeHtml($dealer->meta2) ?></td>
+            <td><?= $this->escapeHtml($dealer->getName()) ?></td>
+            <td><?= $this->escapeHtml($dealer->getCity()) ?></td>
+            <td><?= $this->escapeHtml($dealer->getMeta1()) ?></td>
+            <td><?= $this->escapeHtml($dealer->getMeta2()) ?></td>
             <td>
-                <a href="<?= $this->url('dealer', ['action' => 'edit', 'id' => $dealer->id]) ?>">Edit</a>
-                <a href="<?= $this->url('dealer', ['action' => 'delete', 'id' => $dealer->id]) ?>">Delete</a>
+                <a href="<?= $this->url('dealer', ['action' => 'edit', 'id' => $dealer->getId()]) ?>">Edit</a>
+                <a href="<?= $this->url('dealer', ['action' => 'delete', 'id' => $dealer->getId()]) ?>">Delete</a>
             </td>
         </tr>
     <?php endforeach; ?>

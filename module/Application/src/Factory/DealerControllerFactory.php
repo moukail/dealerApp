@@ -8,6 +8,7 @@
 
 namespace Application\Factory;
 
+use Application\Controller\DealerController;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 

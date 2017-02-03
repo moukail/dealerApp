@@ -57,6 +57,12 @@ return [
             Controller\DealerController::class => 'Application\Factory\DealerControllerFactory',
         ],
     ],
+    'service_manager' => [
+        'factories' => [
+            'Application\Service\Dealer' => 'Application\Factory\DealerServiceFactory',
+        ]
+    ],
+
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
