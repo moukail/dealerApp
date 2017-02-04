@@ -8,17 +8,17 @@
 
 namespace Application\Form;
 
-use Zend\InputFilter;
 use Zend\Form\Element;
 use Zend\Form\Form;
 
-class SearchForm
+class SearchForm extends Form
 {
+    // TODO elastic search
+
     public function __construct($name = null, $options = [])
     {
         parent::__construct($name, $options);
         $this->addElements();
-        //$this->addInputFilter();
     }
 
     public function addElements()

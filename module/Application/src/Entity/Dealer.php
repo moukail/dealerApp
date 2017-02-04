@@ -132,6 +132,9 @@ class Dealer
         $this->meta2 = $meta2;
     }
 
+    /**
+     * @param array $data
+     */
     public function exchangeArray(array $data)
     {
         $this->id       = !empty($data['id']) ? $data['id'] : null;
@@ -141,6 +144,9 @@ class Dealer
         $this->meta2    = !empty($data['meta2']) ? $data['meta2'] : null;
     }
 
+    /**
+     * @return array
+     */
     public function getArrayCopy()
     {
         return [

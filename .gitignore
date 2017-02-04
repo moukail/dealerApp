@@ -1,8 +1,28 @@
 .vagrant/
 .idea/
+
+# Composer files
+composer.phar
 vendor/
+
+# Local configs
+config/autoload/*.local.php
 config/development.config.php
-data/cache/*
+
+# Binary gettext files
+*.mo
+
+# Data
+data/logs/
+data/cache/
+data/sessions/
+data/tmp/
+temp/
+
+#Doctrine 2
+data/DoctrineORMModule/Proxy/
+data/DoctrineORMModule/cache/
+
+
+
 !data/cache/.gitkeep
-phpunit.xml
-ubuntu-xenial-16.04-cloudimg-console.log
