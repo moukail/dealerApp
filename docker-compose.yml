@@ -8,12 +8,10 @@ services:
     ports:
       - "84:80"
       - "444:443"
-      - "2222:22"
     links:
       - mysql2
     volumes:
       - .:/var/www
-      - ~/.ssh:/root/.ssh
     tty: true
 
   mysql2:

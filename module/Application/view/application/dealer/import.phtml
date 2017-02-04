@@ -6,3 +6,30 @@
  * Time: 17:26
  */
 
+$title = 'import dealers';
+$this->headTitle($title);
+?>
+    <h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+
+$excel = $form->get('excel');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('dealer', ['action' => 'import']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<?php // Wrap the elements in divs marked as form groups, and render the
+// label, element, and errors separately within ?>
+    <div class="form-group">
+        <?= $this->formLabel($excel) ?>
+        <?= $this->formFile($excel) ?>
+        <?= $this->formElementErrors()->render($excel, ['class' => 'help-block']) ?>
+    </div>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->form()->closeTag();

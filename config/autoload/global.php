@@ -45,9 +45,9 @@ return [
 
         'migrations_configuration' => array(
             'orm_default' => array(
-                'directory' => '/../../module/Application/config/migrations',
+                'directory' => __DIR__ . '/../../module/Application/config/migrations',
                 'name'      => 'Doctrine Database Migrations',
-                'namespace' => 'Nieuws\Migrations',
+                'namespace' => 'Application\Migrations',
                 'table'     => 'migrations',
                 'column'    => 'version',
             ),

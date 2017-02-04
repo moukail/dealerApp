@@ -3,6 +3,8 @@
 use Zend\Mvc\Application;
 use Zend\Stdlib\ArrayUtils;
 
+define('ROOT', __DIR__ . '/../');
+
 /**
  * Display all errors when APPLICATION_ENV is development.
  */

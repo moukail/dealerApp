@@ -8,16 +8,24 @@
 
 namespace Application\Form;
 
-
+use Zend\Filter\StringTrim;
+use Zend\Filter\StripTags;
+use Zend\Filter\ToInt;
 use Zend\Form\Form;
+use Zend\Validator\StringLength;
+use Zend\InputFilter;
 
 class DealerForm extends Form
 {
-    public function __construct($name = null)
+    public function __construct($name = null, $options = [])
     {
-        // We will ignore the name provided to the constructor
-        parent::__construct('dealer');
+        parent::__construct($name, $options);
+        $this->addElements();
+        $this->addInputFilter();
+    }
 
+    public function addElements()
+    {
         $this->add([
             'name' => 'id',
             'type' => 'hidden',
@@ -58,5 +66,59 @@ class DealerForm extends Form
                 'id'    => 'submitbutton',
             ],
         ]);
+    }
+
+    private function addInputFilter()
+    {
+        $inputFilter = new InputFilter\InputFilter();
+
+        $inputFilter->add([
+            'name' => 'id',
+            'required' => true,
+            'filters' => [
+                ['name' => ToInt::class],
+            ],
+        ]);
+
+        $inputFilter->add([
+            'name' => 'name',
+            'required' => true,
+            'filters' => [
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+            ],
+            'validators' => [
+                [
+                    'name' => StringLength::class,
+                    'options' => [
+                        'encoding' => 'UTF-8',
+                        'min' => 1,
+                        'max' => 100,
+                    ],
+                ],
+            ],
+        ]);
+
+        $inputFilter->add([
+            'name' => 'city',
+            'required' => true,
+            'filters' => [
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+            ],
+            'validators' => [
+                [
+                    'name' => StringLength::class,
+                    'options' => [
+                        'encoding' => 'UTF-8',
+                        'min' => 1,
+                        'max' => 100,
+                    ],
+                ],
+            ],
+        ]);
+
+        $this->setInputFilter($inputFilter);
+
     }
 }
