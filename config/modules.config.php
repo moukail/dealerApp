@@ -21,6 +21,7 @@ return [
     'Zend\Hydrator',
     'Zend\Router',
     'Zend\Validator',
+    'Zend\Mvc\Console',
     'DoctrineModule',
     'DoctrineORMModule',
     'Application',

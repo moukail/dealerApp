@@ -150,11 +150,11 @@ class Dealer
     public function getArrayCopy()
     {
         return [
-            'id'     => $this->id,
-            'name' => $this->name,
+            'id'    => $this->id,
+            'name'  => $this->name,
             'city'  => $this->city,
-            'meta1'  => $this->meta1,
-            'meta2'  => $this->meta2,
+            'meta1' => $this->meta1,
+            'meta2' => $this->meta2,
         ];
     }
 }

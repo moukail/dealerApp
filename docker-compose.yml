@@ -10,6 +10,7 @@ services:
       - "444:443"
     links:
       - mysql2
+      - redis2
     volumes:
       - .:/var/www
     tty: true
@@ -26,3 +27,23 @@ services:
       MYSQL_DATABASE: dealerapp
       MYSQL_USER: root
       MYSQL_PASSWORD: root
+
+  redis2:
+    image: redis:3.2.7
+    container_name: redis2
+    ports:
+      - "6379:6379"
+
+  blackfire:
+    image: blackfire/blackfire
+    environment:
+      # Exposes the host BLACKFIRE_SERVER_ID and TOKEN environment variables.
+      - BLACKFIRE_SERVER_ID=57961115-e0e3-4e85-acf0-683213488374
+      - BLACKFIRE_SERVER_TOKEN=20d05fdb176146c69195247730a281dd82fda6026c93c21d779b5c35d720e2d9
+      # You can also use global environment credentials :
+      # BLACKFIRE_SERVER_ID: SERVER-ID
+      # BLACKFIRE_SERVER_TOKEN: SERVER-TOKEN
+
+volumes:
+  mysql2:
+    driver: local

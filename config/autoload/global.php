@@ -29,19 +29,19 @@ return [
             ]
         ],
 
-        'configuration' => array(
-            'orm_default' => array(
-                'metadata_cache'    => 'array',
-                'query_cache'       => 'array',
-                'result_cache'      => 'array',
-                'hydration_cache'   => 'array',
+        'configuration' => [
+            'orm_default' => [
+                'query_cache'       => 'redis',
+                'result_cache'      => 'redis',
+                'metadata_cache'    => 'redis',
+                'hydration_cache'   => 'redis',
                 'driver'            => 'orm_default',
                 'generate_proxies'  => true,
                 'proxy_dir'         => '/../../data/proxy',
                 'proxy_namespace'   => 'DoctrineORMModule\Proxy',
-                'filters'           => array()
-            )
-        ),
+                'filters'           => []
+            ]
+        ],
 
         'migrations_configuration' => array(
             'orm_default' => array(
