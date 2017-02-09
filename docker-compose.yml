@@ -21,7 +21,7 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - mysql2:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: dealerapp

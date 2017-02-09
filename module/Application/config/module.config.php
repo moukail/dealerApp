@@ -60,7 +60,7 @@ return [
 
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\Cache\Redis' => __NAMESPACE__ . '\Cache\RedisFactory',
+            __NAMESPACE__ . '\Cache\Redis' => __NAMESPACE__ . '\Factory\RedisFactory',
             'Application\Service\Dealer' => 'Application\Factory\DealerServiceFactory',
         ]
     ],
