@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6bee86bc-06a5-48c4-bf4e-13573138664e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/autoload/docker.global.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Factory/RedisFactory.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker-compose.yml" afterPath="$PROJECT_DIR$/docker-compose.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/apache/Dockerfile" afterPath="$PROJECT_DIR$/docker/apache/Dockerfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/apache/apache-config.conf" afterPath="$PROJECT_DIR$/docker/apache/apache-config.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/config/module.config.php" afterPath="$PROJECT_DIR$/module/Application/config/module.config.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -102,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RedisFactory.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RedisFactory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Application/src/Factory/RedisFactory.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -114,12 +108,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="36">
-                <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+              <first_editor relative-caret-position="395">
+                <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -151,6 +145,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <push-targets>
+      <push-target-info repo="$PROJECT_DIR$" source="master" target-remote="github" target-branch="master" />
+    </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -184,9 +181,9 @@
         <option value="$PROJECT_DIR$/docker/apache/apache-config.conf" />
         <option value="$PROJECT_DIR$/module/Application/config/module.config.php" />
         <option value="$PROJECT_DIR$/docker/apache/Dockerfile" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/config/autoload/docker.global.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Factory/RedisFactory.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -397,7 +394,7 @@
       <workItem from="1486149656455" duration="18466000" />
       <workItem from="1486203549798" duration="503000" />
       <workItem from="1486665517925" duration="1722000" />
-      <workItem from="1486667379590" duration="1835000" />
+      <workItem from="1486667379590" duration="2066000" />
     </task>
     <task id="LOCAL-00001" summary="phpexcel import and export">
       <created>1486169887133</created>
@@ -406,11 +403,18 @@
       <option name="project" value="LOCAL" />
       <updated>1486169887133</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="php redis">
+      <created>1486669235735</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1486669235735</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40970000" />
+    <option name="totallyTimeSpent" value="41201000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -471,7 +475,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="phpexcel import and export" />
-    <option name="LAST_COMMIT_MESSAGE" value="phpexcel import and export" />
+    <MESSAGE value="php redis" />
+    <option name="LAST_COMMIT_MESSAGE" value="php redis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -807,17 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="36">
-            <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/autoload/global.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -849,6 +843,17 @@
           <folding>
             <element signature="e#118#159#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="395">
+            <caret line="223" column="0" lean-forward="true" selection-start-line="223" selection-start-column="0" selection-end-line="223" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
