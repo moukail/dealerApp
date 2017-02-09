@@ -46,7 +46,7 @@ RUN echo "xdebug.remote_autostart=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.in
 
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/www
+ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 

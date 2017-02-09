@@ -225,6 +225,6 @@ $ composer test
 
 ```bash
 $ docker-compose up -d --build
-$ ocker-compose run web2 composer update
+$ docker-compose run web2 composer update
 $ docker-compose run web2 php public/index.php orm:schema-tool:update --dump-sql --force
 ```
