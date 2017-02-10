@@ -1,10 +1,24 @@
 version: '3'
 services:
+  mysql2:
+    image: mysql:5.7.17
+    container_name: mysql2
+    ports:
+      - "3302:3306"
+    volumes:
+      - mysql2:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dealerapp
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
   web2:
     build:
       context: ./docker/apache
       dockerfile: Dockerfile
-    command: bash -c "composer update && composer development-enable && php public/index.php orm:schema-tool:update --dump-sql --force"
+    entrypoint: ./docker/docker-entrypoint.sh
+    #command: bash -c "composer update && composer development-enable && php public/index.php orm:schema-tool:update --dump-sql --force"
     container_name: web2
     ports:
       - "84:80"
@@ -15,19 +29,6 @@ services:
     volumes:
       - .:/var/www
     tty: true
-
-  mysql2:
-    image: mysql:5.7.17
-    container_name: mysql2
-    ports:
-      - "3307:3306"
-    volumes:
-      - mysql2:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dealerapp
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
 
   redis2:
     image: redis:3.2.7

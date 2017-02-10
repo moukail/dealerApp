@@ -13,7 +13,6 @@ use Application\Form\DealerForm;
 use Application\Form\UploadForm;
 use Application\Service\DealerService;
 
-use PHPExcel_IOFactory;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -48,14 +47,14 @@ class DealerController extends AbstractActionController
         $request = $this->getRequest();
 
         if (! $request->isPost()) {
-            return ['form' => $form];
+            return [ 'form' => $form ];
         }
 
 
         $form->setData($request->getPost());
 
         if (! $form->isValid()) {
-            return ['form' => $form];
+            return [ 'form' => $form ];
         }
 
         $dealer = new Dealer();
@@ -69,13 +68,13 @@ class DealerController extends AbstractActionController
         $id = (int) $this->params()->fromRoute('id', 0);
 
         if (0 === $id) {
-            return $this->redirect()->toRoute('dealer', ['action' => 'add']);
+            return $this->redirect()->toRoute('dealer', [ 'action' => 'add' ]);
         }
 
         try {
             $dealer = $this->dealerService->getDealer($id);
         } catch (\Exception $e) {
-            return $this->redirect()->toRoute('dealer', ['action' => 'index']);
+            return $this->redirect()->toRoute('dealer', [ 'action' => 'index' ]);
         }
 
         if(!$dealer){
@@ -101,7 +100,7 @@ class DealerController extends AbstractActionController
 
         $this->dealerService->saveDealer($dealer);
 
-        return $this->redirect()->toRoute('dealer', ['action' => 'index']);
+        return $this->redirect()->toRoute('dealer', [ 'action' => 'index' ]);
     }
 
     public function deleteAction()
