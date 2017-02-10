@@ -1,5 +1,9 @@
 # ZendSkeletonApplication
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/moukail/dealerApp/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/moukail/dealerApp/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/moukail/dealerApp/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/moukail/dealerApp/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/moukail/dealerApp/badges/build.png?b=master)](https://scrutinizer-ci.com/g/moukail/dealerApp/build-status/master)
+
 ## Introduction
 
 This is a skeleton application using the Zend Framework MVC layer and module

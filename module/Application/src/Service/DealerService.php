@@ -51,8 +51,10 @@ class DealerService
     public function deleteDealer($id)
     {
         $dealer = $this->entitymanager->find('Application\Entity\Dealer', $id);
-        $this->entitymanager->remove($dealer);
-        $this->entitymanager->flush();
+        if ($dealer) {
+            $this->entitymanager->remove($dealer);
+            $this->entitymanager->flush();
+        }
     }
 
     /**
@@ -92,8 +94,8 @@ class DealerService
         $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
         ob_start();
         $objWriter->save('php://output');
-        $excelOutput = ob_get_clean();
-        return $excelOutput;
+
+        return ob_get_clean();
 
     }
 
@@ -108,7 +110,7 @@ class DealerService
             $objReader = PHPExcel_IOFactory::createReader($inputFileType);
             $objPHPExcel = $objReader->load($inputFileName);
         } catch(Exception $e) {
-            die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+            echo 'Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage();
         }
 
         // TODO refactoring and header check
