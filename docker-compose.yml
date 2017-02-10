@@ -4,6 +4,7 @@ services:
     build:
       context: ./docker/apache
       dockerfile: Dockerfile
+    command: bash -c "composer update && composer development-enable && php public/index.php orm:schema-tool:update --dump-sql --force"
     container_name: web2
     ports:
       - "84:80"

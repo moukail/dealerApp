@@ -10,9 +10,6 @@ namespace Application\Service;
 
 use Application\Entity\Dealer;
 use Doctrine\ORM\EntityManager;
-use Exception;
-use PHPExcel;
-use PHPExcel_IOFactory;
 
 class DealerService
 {
@@ -86,12 +83,13 @@ class DealerService
             array_push($stack, $result[$key]->getArrayCopy());
         }
 
-        /** @var PHPExcel $objPHPExcel */
-        $objPHPExcel = new PHPExcel();
+        /** @var \PHPExcel $objPHPExcel */
+        $objPHPExcel = new \PHPExcel();
         $objPHPExcel->getActiveSheet()->fromArray($stack);
         $objPHPExcel->getActiveSheet()->removeColumn('A');
 
-        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+        /** @var \PHPExcel_Writer_Excel2007 $objWriter */
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
         ob_start();
         $objWriter->save('php://output');
 
@@ -105,11 +103,12 @@ class DealerService
     public function import($inputFileName)
     {
         //  TODO test the other formats
+        $objPHPExcel = new \PHPExcel();
         try {
-            $inputFileType = PHPExcel_IOFactory::identify($inputFileName);
-            $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+            $inputFileType = \PHPExcel_IOFactory::identify($inputFileName);
+            $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
             $objPHPExcel = $objReader->load($inputFileName);
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             echo 'Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage();
         }
 
