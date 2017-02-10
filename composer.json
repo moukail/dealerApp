@@ -17,7 +17,7 @@
         "zendframework/zend-mvc-console": "^1.1",
         "zfcampus/zf-development-mode": "^3.0",
         "doctrine/doctrine-orm-module": "^1.1.1",
-        "phpoffice/phpexcel":"dev-master",
+        "phpoffice/phpexcel":"^1.8",
         "zendframework/zend-mvc-i18n": "^1.0",
         "doctrine/data-fixtures": "^1.2",
         "doctrine/migrations": "^1.5",
