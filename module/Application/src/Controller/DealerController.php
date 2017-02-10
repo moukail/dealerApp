@@ -13,7 +13,6 @@ use Application\Form\DealerForm;
 use Application\Form\UploadForm;
 use Application\Service\DealerService;
 
-use Exception;
 use PHPExcel_IOFactory;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
@@ -79,6 +78,10 @@ class DealerController extends AbstractActionController
             return $this->redirect()->toRoute('dealer', ['action' => 'index']);
         }
 
+        if(!$dealer){
+            return $this->redirect()->toRoute('dealer');
+        }
+
         $form = new DealerForm();
         $form->bind($dealer);
         $form->get('submit')->setAttribute('value', 'Edit');
@@ -109,11 +112,17 @@ class DealerController extends AbstractActionController
         }
 
         $request = $this->getRequest();
+        $dealer = $this->dealerService->getDealer($id);
+
+        if(!$dealer){
+            return $this->redirect()->toRoute('dealer');
+        }
+
         if (!$request->isPost()) {
 
             return [
                 'id'    => $id,
-                'dealer' => $this->dealerService->getDealer($id),
+                'dealer' => $dealer,
             ];
 
         }
