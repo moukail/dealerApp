@@ -19,7 +19,18 @@ $this->headTitle($title);
 <p>
     <a href="<?= $this->url('dealer', ['action' => 'export']) ?>">Export dealers</a>
 </p>
+<div class="g-savetodrive"
+     data-src="<?= $this->url('dealer', ['action' => 'export']) ?>"
+     data-filename="My Statement.xls"
+     data-sitename="My Company Name">
+</div>
 
+<script type="text/javascript">
+    window.___gcfg = {
+        lang: 'nl-NL'
+    };
+</script>
+<script src = 'https://apis.google.com/js/platform.js' async defer></script>
 <table class="table">
     <tr>
         <th>Name</th>
