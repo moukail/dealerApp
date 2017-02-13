@@ -27,7 +27,7 @@ jQuery(function($){
             // Optional. "preview" (default) is a preview link to the document for sharing,
             // "direct" is an expiring link to download the contents of the file. For more
             // information about link types, see Link types below.
-            linkType: "preview", // or "direct"
+            linkType: "direct", // or "preview"
 
             // Optional. A value of false (default) limits selection to a single file, while
             // true enables multiple file selection.
