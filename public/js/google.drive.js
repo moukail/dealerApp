@@ -84,9 +84,7 @@ jQuery(document).ready(function( $ ) {
 
 
 
-            $.post( "/dealer/importgdrive", {doc: data.docs[0], oauthToken: oauthToken},function( r ) {
-                console.log(r);
-            });
+            $.post( "/dealer/importgdrive", {doc: data.docs[0], oauthToken: oauthToken});
 
             /*$.ajax({
                 method: "GET",
