@@ -176,7 +176,8 @@ class DealerController extends AbstractActionController
         $token = $request->getPost('oauthToken');
 
         $this->dealerService->importgdrive($file['id'], $token);
-
+        //TODO show success message
+        return $this->redirect()->toRoute('dealer');
     }
 
     public function exportAction()
