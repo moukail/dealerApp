@@ -1,18 +1,5 @@
 version: '3'
 services:
-  mysql2:
-    image: mysql:5.7.17
-    container_name: mysql2
-    ports:
-      - "3302:3306"
-    volumes:
-      - mysql2:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: dealerapp
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-
   web2:
     build:
       context: ./docker/apache
@@ -30,14 +17,28 @@ services:
       - .:/var/www
     tty: true
 
+  mysql2:
+    image: mysql:5.7.17
+    container_name: mysql2
+    ports:
+      - "3302:3306"
+    volumes:
+      - mysql2:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dealerapp
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+
   redis2:
     image: redis:3.2.7
     container_name: redis2
     ports:
       - "6379:6379"
 
-  blackfire:
+  blackfire2:
     image: blackfire/blackfire
+    container_name: blackfire2
     environment:
       # Exposes the host BLACKFIRE_SERVER_ID and TOKEN environment variables.
       - BLACKFIRE_SERVER_ID=57961115-e0e3-4e85-acf0-683213488374

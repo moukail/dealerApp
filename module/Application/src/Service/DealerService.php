@@ -10,6 +10,7 @@ namespace Application\Service;
 
 use Application\Entity\Dealer;
 use Doctrine\ORM\EntityManager;
+use Zend\Http\Client;
 
 class DealerService
 {
@@ -132,4 +133,44 @@ class DealerService
             $this->saveDealer($dealer);
         }
     }
+
+    /**
+     * @param $fileId
+     * @param $token
+     */
+    public function importgdrive($fileId, $token)
+    {
+        // curl --header "Authorization: Bearer ya29.GlzxA32KfX69gkULfC9WIs105_oUucdF324PL3SYQoR9ZBUO_Mcn7CBZWxU5CA-xd4pgDXITaN3IBX7c5FwugAp33xfHxbOTyTmF_3qGA3wIsssd1Vg-_NN9cRbD-g" https://www.googleapis.com/drive/v3/files/0B7IYCRyGKuBNdGhPMDA1Nl9RZkU?alt=media -o /var/www/symfony.xls
+        // docker-compose run web2 curl --header "Authorization: Bearer ya29.GlzxA32KfX69gkULfC9WIs105_oUucdF324PL3SYQoR9ZBUO_Mcn7CBZWxU5CA-xd4pgDXITaN3IBX7c5FwugAp33xfHxbOTyTmF_3qGA3wIsssd1Vg-_NN9cRbD-g" https://www.googleapis.com/drive/v3/files/0B7IYCRyGKuBNdGhPMDA1Nl9RZkU?alt=media -o /var/www/symfony.xls
+
+        $client = new Client();
+        $client->setUri("https://www.googleapis.com/drive/v3/files/". $fileId ."?alt=media");
+        $client->setHeaders([
+            'Authorization: Bearer ' . $token,
+        ]);
+        //$client->setStream(); // will use temp file
+        /** @var \Zend\Http\Response $response */
+        $response = $client->send();
+        if (!$response->isSuccess()) {
+            return;
+        }
+
+        // copy file:
+        //copy($response->getStreamName(), '/var/www/downloads/file');
+
+        //$fp = fopen('/var/www/file2.xls', 'w');
+        //stream_copy_to_stream($response->getStream(), $fp);
+        $headers = $response->getHeaders();
+        $content = $response->getBody();
+
+        /*$objPHPExcel = new \PHPExcel();
+        try {
+            $inputFileType = \PHPExcel_IOFactory::identify($content);
+            $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+            $objPHPExcel = $objReader->load($content);
+        } catch(\Exception $e) {
+            $e->getMessage();
+        }*/
+    }
+
 }

@@ -21,7 +21,9 @@
         "zendframework/zend-mvc-i18n": "^1.0",
         "doctrine/data-fixtures": "^1.2",
         "doctrine/migrations": "^1.5",
-        "dompdf/dompdf": "^0.7.0"
+        "dompdf/dompdf": "^0.7.0",
+        "zendframework/zend-http": "^2.6",
+        "google/apiclient": "^2.1"
     },
     "require-dev": {
         "zendframework/zend-test": "^3.0"

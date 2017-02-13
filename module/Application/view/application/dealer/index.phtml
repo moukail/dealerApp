@@ -9,16 +9,22 @@
 $title = 'Dealers';
 $this->headTitle($title);
 ?>
+<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="nwx44bw5t17v9gh"></script>
 <h1><?= $this->escapeHtml($title) ?></h1>
 <p>
     <a href="<?= $this->url('dealer', ['action' => 'add']) ?>">Add new dealer</a>
 </p>
 <p>
-    <a href="<?= $this->url('dealer', ['action' => 'import']) ?>">Import dealers</a>
+    <a class="btn btn-default" role="button" href="<?= $this->url('dealer', ['action' => 'import']) ?>">Import dealers</a>
 </p>
 <p>
-    <a href="<?= $this->url('dealer', ['action' => 'export']) ?>">Export dealers</a>
+    <a class="btn btn-default" role="button" href="<?= $this->url('dealer', ['action' => 'export']) ?>">Export dealers</a>
 </p>
+<p>
+    <a class="btn btn-default" role="button" id="testy" href="#">Export to dropbox</a>
+    <a href="<?= $this->url('dealer', ['action' => 'export']) ?>" class="dropbox-saver"></a>
+</p>
+
 <div class="g-savetodrive"
      data-src="<?= $this->url('dealer', ['action' => 'export']) ?>"
      data-filename="My Statement.xls"
@@ -53,3 +59,67 @@ $this->headTitle($title);
         </tr>
     <?php endforeach; ?>
 </table>
+
+<script>
+
+    $(function() {
+        console.log( "ready!" );
+        $('#testy').on('click', function (e) {
+            console.log( "click" );
+            var options = {
+                files: [
+                    // You can specify up to 100 files.
+                    {'url': '...', 'filename': '...'},
+                    {'url': '...', 'filename': '...'},
+                    // ...
+                ],
+
+                // Success is called once all files have been successfully added to the user's
+                // Dropbox, although they may not have synced to the user's devices yet.
+                success: function () {
+                    // Indicate to the user that the files have been saved.
+                    console.log("Success! Files saved to your Dropbox.");
+                },
+
+                // Progress is called periodically to update the application on the progress
+                // of the user's downloads. The value passed to this callback is a float
+                // between 0 and 1. The progress callback is guaranteed to be called at least
+                // once with the value 1.
+                progress: function (progress) {
+                    console.log(progress);
+                },
+
+                // Cancel is called if the user presses the Cancel button or closes the Saver.
+                cancel: function () {
+
+                },
+
+                // Error is called in the event of an unexpected response from the server
+                // hosting the files, such as not being able to find a file. This callback is
+                // also called if there is an error on Dropbox or if the user is over quota.
+                error: function (errorMessage) {
+                    console.log(errorMessage);
+                }
+            };
+            Dropbox.save("http://localhost:84/dealer/export", 'tes.xls', options);
+        })
+    });
+
+    //Dropbox
+    function uploadFile() {
+        var ACCESS_TOKEN = document.getElementById('access-token').value;
+        var dbx = new Dropbox({ accessToken: ACCESS_TOKEN });
+        var fileInput = document.getElementById('file-upload');
+        var file = fileInput.files[0];
+        dbx.filesUpload({path: '/' + file.name, contents: file})
+            .then(function(response) {
+                var results = document.getElementById('results');
+                results.appendChild(document.createTextNode('File uploaded!'));
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.error(error);
+            });
+        return false;
+    }
+</script>

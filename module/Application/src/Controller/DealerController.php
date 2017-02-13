@@ -165,6 +165,20 @@ class DealerController extends AbstractActionController
         return $this->redirect()->toRoute('dealer');
     }
 
+    public function importgdriveAction(){
+
+        $request = $this->getRequest();
+        if (!$request->isPost()) {
+            return;
+        }
+
+        $file = $request->getPost('doc');
+        $token = $request->getPost('oauthToken');
+
+        $this->dealerService->importgdrive($file['id'], $token);
+
+    }
+
     public function exportAction()
     {
         $result = $this->dealerService->export();

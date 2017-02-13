@@ -5,7 +5,7 @@ return [
             'orm_default' => [
                 'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
                 'params' => [
-                    'host'     => 'mysql_prd',
+                    'host'     => 'mysql2',
                     'port'     => '3306',
                     'user'     => 'root',
                     'password' => 'root',

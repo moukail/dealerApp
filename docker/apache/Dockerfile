@@ -2,9 +2,8 @@ FROM ubuntu:16.04
 MAINTAINER Ismail Moukafih <info@moukafih.nl>
 
 RUN apt-get update
-RUN apt-get -y upgrade
-
 RUN apt-get -y install git \
+    apt-utils \
     unzip \
     curl \
     wget \
@@ -23,21 +22,18 @@ RUN apt-get -y install git \
     php-redis \
     php-mbstring
 
-RUN curl -sS https://getcomposer.org/installer \
-      | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN a2enmod php7.0
-RUN a2enmod rewrite
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+RUN a2enmod php7.0 && a2enmod rewrite
 
 #Set up debugger
 #RUN echo "zend_extension=xdebug.so" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
-RUN echo "xdebug.remote_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
-RUN echo "xdebug.remote_host=172.16.1.176" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
-RUN echo "xdebug.remote_port=9000" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
-RUN echo "xdebug.profiler_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
-RUN echo "xdebug.profiler_output_dir=/var/www/profiling" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini #Please provide your host (local machine IP)
-RUN echo "xdebug.idekey=PHPSTORM" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
-RUN echo "xdebug.remote_autostart=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
+RUN echo "xdebug.remote_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini \
+    && echo "xdebug.remote_host=192.168.1.11" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini \
+    && echo "xdebug.remote_port=9000" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini \
+    && echo "xdebug.profiler_enable=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini \
+    && echo "xdebug.profiler_output_dir=/var/www/profiling" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini \
+    && echo "xdebug.idekey=PHPSTORM" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini \
+    && echo "xdebug.remote_autostart=1" >> /etc/php/7.0/apache2/conf.d/20-xdebug.ini
 
 #RUN wget -O - https://packagecloud.io/gpg.key | apt-key add - \
 #    && echo "deb http://packages.blackfire.io/debian any main" > /etc/apt/sources.list.d/blackfire.list \
