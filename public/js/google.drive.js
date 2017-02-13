@@ -55,7 +55,7 @@ jQuery(document).ready(function( $ ) {
     function createPicker() {
         if (pickerApiLoaded && oauthToken) {
             var view = new google.picker.View(google.picker.ViewId.DOCS);
-            view.setMimeTypes("application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/x-vnd.oasis.opendocument.spreadsheet");
+            view.setMimeTypes("application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
             var picker = new google.picker.PickerBuilder()
                 .enableFeature(google.picker.Feature.NAV_HIDDEN)
                 .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
