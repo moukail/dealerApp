@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../a2b-center/v/A2BCenter/pdo-backend/functions/main.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.scrutinizer.yml">
           <value>
             <set />
@@ -84,6 +89,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/module/Application/src/Service/DealerService.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/Dealer/config/module.config.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/Dealer/test/Controller/IndexControllerTest.php">
           <value>
             <set />
           </value>
