@@ -136,8 +136,7 @@ class DealerController extends AbstractActionController
         return $this->redirect()->toRoute('dealer');
     }
 
-    public function importAction()
-    {
+    public function importAction(){
         $form = new UploadForm('upload-form');
 
         $request = $this->getRequest();
@@ -165,17 +164,17 @@ class DealerController extends AbstractActionController
         return $this->redirect()->toRoute('dealer');
     }
 
-    public function importgdriveAction(){
-
+    public function importcloudAction()
+    {
         $request = $this->getRequest();
         if (!$request->isPost()) {
-            return;
+            return [];
         }
 
-        $file = $request->getPost('doc');
+        $url = $request->getPost('url');
         $token = $request->getPost('oauthToken');
 
-        $this->dealerService->importgdrive($file['id'], $token);
+        $this->dealerService->importcloud($url, $token);
         //TODO show success message
         return $this->redirect()->toRoute('dealer');
     }

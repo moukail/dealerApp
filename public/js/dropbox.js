@@ -16,6 +16,8 @@ jQuery(function($){
             success: function(files) {
                 console.log("Here's the file link: " + files[0].link);
                 console.log(files[0]);
+                // TODO First validate the excel file
+                $.post( "/dealer/importcloud", {url: files[0].link} );
             },
 
             // Optional. Called when the user closes the dialog without selecting a file

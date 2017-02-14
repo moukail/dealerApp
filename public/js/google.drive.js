@@ -82,26 +82,9 @@ jQuery(document).ready(function( $ ) {
             //printFile(fileId);
             //downloadFile();
 
-
-
-            $.post( "/dealer/importgdrive", {doc: data.docs[0], oauthToken: oauthToken});
-
-            /*$.ajax({
-                method: "GET",
-                url: "https://www.googleapis.com/drive/v2/files/" + fileId,
-                headers : {Authorization: 'Bearer ' + oauthToken}
-            }).done(function(data) {
-                console.log( "success" );
-                console.log(data);
-                $.post( "/dealer/importgdrive", {doc: data.docs[0], oauthToken: oauthToken},function( r ) {
-                 console.log(r);
-                 });
-            }).fail(function() {
-                console.log( "error" );
-            }).always(function() {
-                console.log( "complete" );
-            });*/
-
+            var url = "https://www.googleapis.com/drive/v3/files/" + fileId + "?alt=media";
+            // TODO First validate the excel file
+            $.post( "/dealer/importcloud", {url: url, oauthToken: oauthToken});
 
         }
     }

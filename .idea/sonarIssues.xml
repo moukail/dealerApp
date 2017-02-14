@@ -78,7 +78,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/module/Application/src/Form/UploadForm.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/module/Application/src/Service/DealerService.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/public/index.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/public/js/dropbox.js">
           <value>
             <set />
           </value>
@@ -89,6 +104,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../moukafih/docker-compose.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ubuntu/install/kubernetes.sh">
           <value>
             <set />
           </value>

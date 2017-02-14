@@ -138,7 +138,7 @@ class DealerService
      * @param $fileId
      * @param $token
      */
-    public function importgdrive($fileId, $token)
+    public function importcloud( $fileId, $token = null )
     {
         // curl --header "Authorization: Bearer ya29.GlzxA32KfX69gkULfC9WIs105_oUucdF324PL3SYQoR9ZBUO_Mcn7CBZWxU5CA-xd4pgDXITaN3IBX7c5FwugAp33xfHxbOTyTmF_3qGA3wIsssd1Vg-_NN9cRbD-g" https://www.googleapis.com/drive/v3/files/0B7IYCRyGKuBNdGhPMDA1Nl9RZkU?alt=media -o /var/www/symfony.xls
         // docker-compose run web2 curl --header "Authorization: Bearer ya29.GlzxA32KfX69gkULfC9WIs105_oUucdF324PL3SYQoR9ZBUO_Mcn7CBZWxU5CA-xd4pgDXITaN3IBX7c5FwugAp33xfHxbOTyTmF_3qGA3wIsssd1Vg-_NN9cRbD-g" https://www.googleapis.com/drive/v3/files/0B7IYCRyGKuBNdGhPMDA1Nl9RZkU?alt=media -o /var/www/symfony.xls
@@ -146,11 +146,14 @@ class DealerService
         //$info = pathinfo($filename);
         $filename = 'dealers' . uniqid('_') . '.xls';
 
-        $fp = fopen ('/var/www/data/tmpuploads/' . $filename, 'x+');
+        $fp = fopen ('./data/uploads/' . $filename, 'x+');
         $ch = curl_init();
         // set url
-        curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/drive/v3/files/" . $fileId . "?alt=media");
-        curl_setopt($ch,CURLOPT_HTTPHEADER,array('Authorization: Bearer ' . $token));
+        curl_setopt($ch, CURLOPT_URL, $file_url);
+        if($token){
+            curl_setopt($ch,CURLOPT_HTTPHEADER,array('Authorization: Bearer ' . $token));
+        }
+
         curl_setopt($ch, CURLOPT_FILE, $fp);
         // $output contains the output string
         $output = curl_exec($ch);
@@ -158,8 +161,7 @@ class DealerService
         // close curl resource to free up system resources
         curl_close($ch);
 
-
-        $this->import('/var/www/data/tmpuploads/' . $filename);
+        $this->import('./data/uploads/' . $filename);
 
         return ['status' => 'succes'];
     }
