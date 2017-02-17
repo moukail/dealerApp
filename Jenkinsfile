@@ -33,7 +33,7 @@ pipeline {
         stage('Deploy - Staging') {
             when {
                 branch 'develop'
-                currentBuild.result == 'SUCCESS'
+                //currentBuild.result == 'SUCCESS'
             }
             steps {
                 echo 'Deploying to staging....'
@@ -49,7 +49,7 @@ pipeline {
         stage('Deploy - Production') {
             when {
                 branch 'master'
-                currentBuild.result == 'SUCCESS'
+                //currentBuild.result == 'SUCCESS'
             }
             steps {
                 echo 'Deploying to Production....'
