@@ -57,6 +57,7 @@ pipeline {
 
                 retry(3) {
                     //sh './flakey-deploy.sh'
+                    echo 'retry Deploying to Production....'
                 }
 
                 timeout(time: 3, unit: 'MINUTES') {
