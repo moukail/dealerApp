@@ -26,15 +26,33 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                // Run the tests
+                sh "vendor/bin/phpunit"
             }
         }
-        stage('Deploy') {
+        stage('Deploy - Staging') {
+            when {
+                branch 'develop'
+                currentBuild.result == 'SUCCESS'
+            }
+            steps {
+                echo 'Deploying to staging....'
+            }
+        }
+
+        stage('Sanity check') {
+            steps {
+                input "Does the staging environment look ok?"
+            }
+        }
+
+        stage('Deploy - Production') {
             when {
                 branch 'master'
                 currentBuild.result == 'SUCCESS'
             }
             steps {
-                echo 'Deploying....'
+                echo 'Deploying to Production....'
 
                 retry(3) {
                     sh './flakey-deploy.sh'
@@ -51,12 +69,16 @@ pipeline {
     post {
         always {
             sh 'This will always run'
+            //deleteDir() /* clean up our workspace */
         }
         success {
             sh 'This will run only if successful'
         }
         failure {
             sh 'This will run only if failed'
+            mail to: 'moukafih@live.nl',
+                         subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+                         body: "Something is wrong with ${env.BUILD_URL}"
         }
         unstable {
             sh 'This will run only if the run was marked as unstable'
