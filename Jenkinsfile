@@ -42,6 +42,7 @@ pipeline {
 
         stage('Sanity check') {
             steps {
+                echo 'Sanity check....'
                 //input "Does the staging environment look ok?"
             }
         }
