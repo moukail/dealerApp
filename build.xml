@@ -15,7 +15,7 @@
     -->
 
     <target name="deploy" depends="zpk">
-        <echo msg="deploy '${host}'" />
+        <echo msg="deploy ${host}" />
         <echo msg="deploy '${username}'" />
         <echo msg="deploy '${password}'" />
         <echo msg="deploy '${params}'" />
