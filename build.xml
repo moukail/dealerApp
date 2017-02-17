@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project name="dealerApp" basedir="." default="unittest">
     <target name="unittest">
-        <echo msg="unittest" />
+        <echo msg="unittest '${project.basedir}' " />
     </target>
 
     <target name="zpk" depends="unittest">
@@ -15,7 +15,8 @@
     -->
 
     <target name="deploy" depends="zpk">
-        <echo msg="deploy" />
+    <target name="deploy" depends="zpk">
+        <echo msg="deploy '${host}'" />
     </target>
 
 </project>
