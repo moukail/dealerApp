@@ -68,24 +68,24 @@ pipeline {
 
     post {
         always {
-            sh 'This will always run'
+            echo 'This will always run'
             //deleteDir() /* clean up our workspace */
         }
         success {
-            sh 'This will run only if successful'
+            echo 'This will run only if successful'
         }
         failure {
-            sh 'This will run only if failed'
+            echo 'This will run only if failed'
             mail to: 'moukafih@live.nl',
                          subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                          body: "Something is wrong with ${env.BUILD_URL}"
         }
         unstable {
-            sh 'This will run only if the run was marked as unstable'
+            echo 'This will run only if the run was marked as unstable'
         }
         changed {
-            sh 'This will run only if the state of the Pipeline has changed'
-            sh 'For example, the Pipeline was previously failing but is now successful'
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, the Pipeline was previously failing but is now successful'
         }
     }
 }
