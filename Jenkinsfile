@@ -20,14 +20,14 @@ pipeline {
                 echo 'Building..'
                 sh 'php --version'
                 // Run Composer
-                sh 'composer install'
+                //sh 'composer install'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
                 // Run the tests
-                sh "vendor/bin/phpunit"
+                //sh "vendor/bin/phpunit"
             }
         }
         stage('Deploy - Staging') {
