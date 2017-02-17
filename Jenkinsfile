@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-       SAUCE_ACCESS = credentials('sauce-lab-dev')
+       //SAUCE_ACCESS = credentials('sauce-lab-dev')
     }
 
     stages {
