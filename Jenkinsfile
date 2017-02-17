@@ -15,55 +15,7 @@ pipeline {
                 echo "Hello ${params.PERSON}"
             }
         }
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh 'php --version'
-                // Run Composer
-                sh 'composer install'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-                // Run the tests
-                sh "vendor/bin/phpunit"
-            }
-        }
-        stage('Deploy - Staging') {
-            when {
-                branch 'develop'
-                //currentBuild.result == 'SUCCESS'
-            }
-            steps {
-                echo 'Deploying to staging....'
-            }
-        }
-
-        stage('Sanity check') {
-            steps {
-                input "Does the staging environment look ok?"
-            }
-        }
-
-        stage('Deploy - Production') {
-            when {
-                branch 'master'
-                //currentBuild.result == 'SUCCESS'
-            }
-            steps {
-                echo 'Deploying to Production....'
-
-                retry(3) {
-                    sh './flakey-deploy.sh'
-                }
-
-                timeout(time: 3, unit: 'MINUTES') {
-                    //sh './slow-process.sh'
-                    echo 'Deploying. timeout'
-                }
-            }
-        }
+        
     }
 
     post {
