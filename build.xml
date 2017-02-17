@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="dealerApp" basedir="." default="unittest">
+    <target name="unittest">
+        <echo msg="unittest" />
+    </target>
+
+    <target name="zpk" depends="unittest">
+        <echo msg="zpk" />
+    </target>
+
+    <!--
+   Example:
+   cd /var/www/zf-hudson;
+   phing -debug unittest zpk deploy -Dkey=deployment -Dapp='calculator' -Dparams="a=1 b=2" -Dhost=http://localhost:10081/ZendServer -Dsecret=d13b0153c327bb9d90635c27d1060a361a3cb7dfedc1d977af3dcbb5fcfd4bf7 -Dbase="/zf-hudson" -Dapp=ZfHudson Dparams='x=1&y=2'
+    -->
+
+    <target name="deploy" depends="zpk">
+        <echo msg="deploy" />
+    </target>
+
+</project>
