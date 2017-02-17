@@ -5,9 +5,9 @@ pipeline {
         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
     }
 
-    environment {
+    //environment {
        //SAUCE_ACCESS = credentials('sauce-lab-dev')
-    }
+    //}
 
     stages {
         stage('Example') {
