@@ -146,7 +146,7 @@ class DealerService
         //$info = pathinfo($filename);
         $filename = 'dealers' . uniqid('_') . '.xls';
 
-        $fp = fopen ('/var/www/data/tmpuploads/' . $filename, 'x+');
+        $fp = fopen ('/var/www/data/uploads/' . $filename, 'x+');
         $ch = curl_init();
         // set url
         curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/drive/v3/files/" . $fileId . "?alt=media");
@@ -159,7 +159,7 @@ class DealerService
         curl_close($ch);
 
 
-        $this->import('/var/www/data/tmpuploads/' . $filename);
+        $this->import('/var/www/data/uploads/' . $filename);
 
         return ['status' => 'succes'];
     }

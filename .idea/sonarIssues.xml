@@ -8,7 +8,22 @@
             <set />
           </value>
         </entry>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/fragment.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../a2b-center/v/A2BCenter/modules/vk_604/functions.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../a2b-center/v/A2BCenter/pdo-backend/functions/maintenance/pod_upload.php">
           <value>
             <set />
           </value>
@@ -98,12 +113,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/module/Application/view/application/dealer/index.phtml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/public/js/google.drive.js">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../moukafih/docker-compose.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../moukafih_cms/docker-compose.yml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../moukafih_cms/public/index.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ubuntu/install/vpn.sh">
           <value>
             <set />
           </value>

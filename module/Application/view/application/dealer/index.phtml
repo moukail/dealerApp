@@ -27,8 +27,8 @@ $this->headTitle($title);
 
 <div class="g-savetodrive"
      data-src="<?= $this->url('dealer', ['action' => 'export']) ?>"
-     data-filename="My Statement.xls"
-     data-sitename="My Company Name">
+     data-filename="dealers.xls"
+     data-sitename="Dealer App">
 </div>
 
 <script type="text/javascript">
@@ -101,7 +101,7 @@ $this->headTitle($title);
                     console.log(errorMessage);
                 }
             };
-            Dropbox.save("http://localhost:84/dealer/export", 'tes.xls', options);
+            Dropbox.save("http://localhost:84/dealer/export", 'dealers.xls', options);
         })
     });
 
