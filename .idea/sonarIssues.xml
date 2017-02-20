@@ -23,7 +23,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/Jenkinsfile">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/README.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/build.xml">
           <value>
             <set />
           </value>
@@ -74,6 +84,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/module/Application/src/Factory/RedisFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/Application/src/Form/UploadForm.php">
           <value>
             <set />
           </value>
