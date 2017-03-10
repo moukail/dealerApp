@@ -31,10 +31,10 @@ return [
 
         'configuration' => [
             'orm_default' => [
-                'query_cache'       => 'redis',
-                'result_cache'      => 'redis',
-                'metadata_cache'    => 'redis',
-                'hydration_cache'   => 'redis',
+                'query_cache'       => 'array',
+                'result_cache'      => 'array',
+                'metadata_cache'    => 'array',
+                'hydration_cache'   => 'array',
                 'driver'            => 'orm_default',
                 'generate_proxies'  => true,
                 'proxy_dir'         => '/../../data/proxy',
