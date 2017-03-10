@@ -60,7 +60,7 @@ return [
 
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\Cache\Redis' => __NAMESPACE__ . '\Factory\RedisFactory',
+            //__NAMESPACE__ . '\Cache\Redis' => __NAMESPACE__ . '\Factory\RedisFactory',
             'Application\Service\Dealer' => 'Application\Factory\DealerServiceFactory',
         ]
     ],
@@ -82,13 +82,13 @@ return [
         ],
     ],
 
-    'doctrine' => [
+    /*'doctrine' => [
         'cache' => [
             'redis' => [
                 'namespace' => __NAMESPACE__ . '_Doctrine',
                 'instance'  => __NAMESPACE__ . '\Cache\Redis',
             ],
         ],
-    ],
+    ],*/
 
 ];
