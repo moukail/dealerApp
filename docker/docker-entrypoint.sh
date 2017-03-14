@@ -3,10 +3,10 @@ echo "-------------------------------------------------------------------"
 echo "-                              test                               -"
 echo "-------------------------------------------------------------------"
 
-mkdir data/tmpuploads
-chmod 0777 -R data/tmpuploads
+#mkdir data/tmpuploads
+chmod 0777 -R data/uploads
 composer update
 composer development-disable
 composer development-enable
 php public/index.php orm:schema-tool:update --dump-sql --force
-/usr/sbin/apache2ctl -D FOREGROUND
+/usr/bin/apachectl -D FOREGROUND

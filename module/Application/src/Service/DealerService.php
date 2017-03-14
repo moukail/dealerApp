@@ -20,13 +20,17 @@ class DealerService
      */
     private $entitymanager;
 
+    private $cache;
+
     /**
      * FeedService constructor.
      * @param EntityManager $entitymanager
      */
-    public function __construct(EntityManager $entitymanager)
+    public function __construct(EntityManager $entitymanager, $cache)
     {
         $this->entitymanager = $entitymanager;
+        $this->cache = $cache;
+
     }
 
 
@@ -69,7 +73,14 @@ class DealerService
      */
     public function findAllDealers()
     {
-        return $this->entitymanager->getRepository('Application\Entity\Dealer')->findAll();
+        $key    = 'find-all-dealers';
+        $result = $cache->getItem($key, $success);
+        if (! $success) {
+            $result = $this->entitymanager->getRepository('Application\Entity\Dealer')->findAll();
+            $cache->setItem($key, $result);
+        }
+
+        return $result;
     }
 
     /**

@@ -11,12 +11,31 @@ namespace Application\Factory;
 use Application\Service\DealerService;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
+use Zend\Cache\StorageFactory;
 
 class DealerServiceFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
         $entitymanager = $container->get('doctrine.entitymanager.orm_default');
-        return new DealerService($entitymanager);
+
+        $cache = StorageFactory::factory([
+            'adapter' => [
+                'name' => 'redis',
+                'options' => [
+                    'namespace' => 'appCache',
+                    'database' => 'dealer',
+                    'server' => ['host' => 'redis2', 'port' => '6379', 'timeout' => 300],
+                ],
+            ],
+            'plugins' => [
+                // Don't throw exceptions on cache errors
+                'exception_handler' => [
+                    'throw_exceptions' => false
+                ],
+            ],
+        ]);
+
+        return new DealerService($entitymanager, $cache);
     }
 }

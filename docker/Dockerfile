@@ -18,4 +18,4 @@ WORKDIR /var/www
 
 ADD apache/apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
-CMD /usr/bin/apachectl -D FOREGROUND
+#CMD /usr/bin/apachectl -D FOREGROUND
