@@ -4,8 +4,8 @@ services:
     build:
       context: ./docker
       dockerfile: Dockerfile
-    #entrypoint: ./docker/docker-entrypoint.sh
-    command: bash -c "composer update && composer development-enable && php public/index.php orm:schema-tool:update --dump-sql --force && /usr/bin/apachectl -D FOREGROUND"
+    entrypoint: ./docker/docker-entrypoint.sh
+    #command: bash -c "composer update && composer development-enable && php public/index.php orm:schema-tool:update --dump-sql --force && /usr/bin/apachectl -D FOREGROUND"
     container_name: web2
     ports:
       - "84:80"

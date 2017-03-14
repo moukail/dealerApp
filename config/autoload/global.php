@@ -31,10 +31,10 @@ return [
 
         'configuration' => [
             'orm_default' => [
-                'query_cache'       => 'array',
-                'result_cache'      => 'array',
-                'metadata_cache'    => 'array',
-                'hydration_cache'   => 'array',
+                'query_cache'       => 'redis',
+                'result_cache'      => 'redis',
+                'metadata_cache'    => 'redis',
+                'hydration_cache'   => 'redis',
                 'driver'            => 'orm_default',
                 'generate_proxies'  => true,
                 'proxy_dir'         => '/../../data/proxy',
@@ -81,7 +81,17 @@ return [
         ),
 
         'sql_logger_collector' => array(
-            'orm_default' => array(),
+            'orm_default' => array(
+                // name of the sql logger collector (used by ZendDeveloperTools)
+                'name' => 'other_orm',
+
+                // name of the configuration service at which to attach the logger
+                'configuration' => 'doctrine.configuration.orm_default',
+
+                // uncomment following if you want to use a particular SQL logger instead of relying on
+                // the attached one
+                //'sql_logger' => 'service_name_of_my_dbal_sql_logger',
+            ),
         ),
 
         'entity_resolver' => array(

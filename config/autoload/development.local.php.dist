@@ -100,7 +100,10 @@ return [
              * Example: 'collectors' => array('db' => null)
              * Expects: array
              */
-            'collectors' => [],
+            'collectors' => [
+                // reference to the service we have defined
+                'orm_default' => 'doctrine.sql_logger_collector.orm_default',
+            ],
         ],
         'events' => [
             /**
@@ -186,7 +189,10 @@ return [
              * ),
              * Expects: array
              */
-            'entries' => [],
+            'entries' => [
+                // this is actually a name of a view script to use - you can use your custom one
+                'orm_default' => 'zend-developer-tools/toolbar/doctrine-orm',
+            ],
         ],
     ],
 ];
