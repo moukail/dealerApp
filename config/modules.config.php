@@ -25,4 +25,5 @@ return [
     'DoctrineModule',
     'DoctrineORMModule',
     'Application',
+    'QualityDashboard',
 ];

@@ -88,6 +88,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/config/modules.config.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/docker-compose.yml">
           <value>
             <set />
@@ -158,6 +163,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../docker/apache/install_php.sh">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../docker/apache/install_phpredis.sh">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../docker/docker/centos/apache/install_apache.sh">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../docker/docker/centos/apache/install_php.sh">
           <value>
             <set />
@@ -178,12 +198,57 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/composer.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/config/autoload/doctrine.global.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/config/autoload/zfc_rbac.global.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/config/modules.config.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/docker-compose.yml">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/docker/ubuntu/Dockerfile">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/error.log">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityDashboard/config/module.config.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityDashboard/src/Controller/IndexController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityDashboard/src/Module.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityDashboard/view/quality-dashboard/index/index.phtml">
           <value>
             <set />
           </value>
