@@ -23,9 +23,10 @@ class DealerServiceFactory implements FactoryInterface
             'adapter' => [
                 'name' => 'redis',
                 'options' => [
+                    'server' => ['host' => 'redis2', 'port' => '6379', 'timeout' => 300],
                     'namespace' => 'appCache',
                     'database' => 'dealer',
-                    'server' => ['host' => 'redis2', 'port' => '6379', 'timeout' => 300],
+
                 ],
             ],
             'plugins' => [

@@ -61,7 +61,7 @@ return [
     'service_manager' => [
         'factories' => [
             __NAMESPACE__ . '\Cache\Redis' => __NAMESPACE__ . '\Factory\RedisFactory',
-            'doctrine.sql_logger_collector.other_orm' => new \DoctrineORMModule\Service\SQLLoggerCollectorFactory('orm_default'),
+            //'doctrine.sql_logger_collector.other_orm' => new \DoctrineORMModule\Service\SQLLoggerCollectorFactory('other_orm'),
             'Application\Service\Dealer' => 'Application\Factory\DealerServiceFactory',
         ]
     ],

@@ -17,6 +17,20 @@ class Module implements
 {
     const VERSION = '3.0.2dev';
 
+    public function onBootstrap(\Zend\EventManager\EventInterface $e)
+    {
+        $app = $e->getApplication();
+        $config = $e->getTarget()->getServiceManager()->get('Config');
+
+        /*if (
+            isset($config['zenddevelopertools']['profiler']['enabled'])
+            && $config['zenddevelopertools']['profiler']['enabled']
+        ) {
+            // when ZendDeveloperTools is enabled, initialize the sql collector
+            $app->getServiceManager()->get('doctrine.sql_logger_collector.other_orm');
+        }*/
+    }
+
     public function getConfig()
     {
         return include __DIR__ . '/../config/module.config.php';

@@ -43,47 +43,47 @@ return [
             ]
         ],
 
-        'migrations_configuration' => array(
-            'orm_default' => array(
+        'migrations_configuration' => [
+            'orm_default' => [
                 'directory' => __DIR__ . '/../../module/Application/config/migrations',
                 'name'      => 'Doctrine Database Migrations',
                 'namespace' => 'Application\Migrations',
                 'table'     => 'migrations',
                 'column'    => 'version',
-            ),
-        ),
+            ],
+        ],
 
-        'driver' => array(
-            'Dealer_Driver' => array(
+        'driver' => [
+            'Dealer_Driver' => [
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(
+                'paths' => [
                     __DIR__ . '/../../module/Application/src/Entity'
-                )
-            ),
-            'orm_default' => array(
+                ]
+            ],
+            'orm_default' => [
                 'class'   => 'Doctrine\ORM\Mapping\Driver\DriverChain',
-                'drivers' => array(
+                'drivers' => [
                     'Application\Entity' =>  'Dealer_Driver'
-                )
-            ),
-        ),
+                ]
+            ],
+        ],
 
-        'entitymanager' => array(
-            'orm_default' => array(
+        'entitymanager' => [
+            'orm_default' => [
                 'connection'    => 'orm_default',
                 'configuration' => 'orm_default'
-            )
-        ),
+            ]
+        ],
 
-        'eventmanager' => array(
-            'orm_default' => array()
-        ),
+        'eventmanager' => [
+            'orm_default' => []
+        ],
 
-        'sql_logger_collector' => array(
+        /*'sql_logger_collector' => array(
             'orm_default' => array(
                 // name of the sql logger collector (used by ZendDeveloperTools)
-                'name' => 'other_orm',
+                'name' => 'orm_default',
 
                 // name of the configuration service at which to attach the logger
                 'configuration' => 'doctrine.configuration.orm_default',
@@ -92,11 +92,11 @@ return [
                 // the attached one
                 //'sql_logger' => 'service_name_of_my_dbal_sql_logger',
             ),
-        ),
+        ),*/
 
-        'entity_resolver' => array(
-            'orm_default' => array()
-        ),
+        'entity_resolver' => [
+            'orm_default' => []
+        ],
 
     ],
 ];
