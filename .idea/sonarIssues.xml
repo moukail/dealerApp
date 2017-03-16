@@ -198,6 +198,46 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/config/module.config.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/src/Controller/UploadController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/src/Entity/QualityImport.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/src/Factory/UploadControllerFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/src/Factory/UploadServiceFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/src/Form/UploadForm.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/src/Service/UploadService.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/module/QualityImport/view/quality-import/upload/index.phtml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/public/index.html">
           <value>
             <set />
@@ -249,6 +289,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../moukafih_cms/public/index.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/auth.json">
           <value>
             <set />
           </value>
@@ -333,6 +383,91 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/config/migrations/Version20170316141829.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/config/module.config.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Controller/ImportController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Controller/IndexController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Controller/UploadController.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Entity/Dealer.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Entity/QualityImport.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Factory/ImportControllerFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Factory/ImportServiceFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Factory/UploadControllerFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Factory/UploadServiceFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Form/UploadForm.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Module.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Service/ImportService.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/src/Service/UploadService.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/view/quality-import/index/index.phtml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/module/QualityImport/view/quality-import/upload/index.phtml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../renault-2.0-prod.-version/public/index.php">
           <value>
             <set />
@@ -349,6 +484,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../zf2_example/composer.json">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/composer.lock">
           <value>
             <set />
           </value>
@@ -373,6 +513,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/config/development.config.php.dist">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../zf2_example/config/modules.config.php">
           <value>
             <set />
@@ -389,6 +534,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/../zf2_example/module/Application/Module.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/module/Application/config/module.config.php">
           <value>
             <set />
           </value>
@@ -428,7 +578,42 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/module/QualityImport/config/module.config.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/module/QualityImport/src/Entity/QualityImport.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/module/QualityImport/src/Factory/UploadControllerFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/module/QualityImport/src/Factory/UploadServiceFactory.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/module/QualityImport/src/Form/UploadForm.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../zf2_example/module/QualityImport/src/Service/UploadService.php">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../zf2_example/public/index.php">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="dbtable:/bcfcf7c/ae65f169-6f31-4e80-9cdd-ac61198617ff/nbeyond_renault_int.data_nl_quality_import">
           <value>
             <set />
           </value>
