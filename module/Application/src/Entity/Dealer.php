@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: ismail
  * Date: 2-2-17
- * Time: 13:33
+ * Time: 13:33.
  */
 
 namespace Application\Entity;
@@ -15,7 +15,6 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="dealer")
  *
  * @category Application
- * @package  Entity
  */
 class Dealer
 {
@@ -23,12 +22,14 @@ class Dealer
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     *
      * @var int
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", nullable=false)
+     *
      * @var string
      */
     private $name;
@@ -36,18 +37,21 @@ class Dealer
     // TODO manyToMany
     /**
      * @ORM\Column(type="string", nullable=false)
+     *
      * @var string
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     *
      * @var string
      */
     private $meta1;
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     *
      * @var string
      */
     private $meta2;
@@ -137,11 +141,11 @@ class Dealer
      */
     public function exchangeArray(array $data)
     {
-        $this->id       = !empty($data['id']) ? $data['id'] : null;
-        $this->name     = !empty($data['name']) ? $data['name'] : null;
-        $this->city     = !empty($data['city']) ? $data['city'] : null;
-        $this->meta1    = !empty($data['meta1']) ? $data['meta1'] : null;
-        $this->meta2    = !empty($data['meta2']) ? $data['meta2'] : null;
+        $this->id = !empty($data['id']) ? $data['id'] : null;
+        $this->name = !empty($data['name']) ? $data['name'] : null;
+        $this->city = !empty($data['city']) ? $data['city'] : null;
+        $this->meta1 = !empty($data['meta1']) ? $data['meta1'] : null;
+        $this->meta2 = !empty($data['meta2']) ? $data['meta2'] : null;
     }
 
     /**

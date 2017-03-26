@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: ismail
  * Date: 2-2-17
- * Time: 13:39
+ * Time: 13:39.
  */
 
 namespace Application\Controller;
@@ -12,19 +12,19 @@ use Application\Entity\Dealer;
 use Application\Form\DealerForm;
 use Application\Form\UploadForm;
 use Application\Service\DealerService;
-
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class DealerController extends AbstractActionController
 {
     /**
-     * @var DealerService $dealerService
+     * @var DealerService
      */
     private $dealerService;
 
     /**
      * DealerController constructor.
+     *
      * @param DealerService $dealerService
      */
     public function __construct(DealerService $dealerService)
@@ -34,9 +34,9 @@ class DealerController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel(array(
-            'dealers' => $this->dealerService->findAllDealers()
-        ));
+        return new ViewModel([
+            'dealers' => $this->dealerService->findAllDealers(),
+        ]);
     }
 
     public function addAction()
@@ -46,20 +46,20 @@ class DealerController extends AbstractActionController
 
         $request = $this->getRequest();
 
-        if (! $request->isPost()) {
-            return [ 'form' => $form ];
+        if (!$request->isPost()) {
+            return ['form' => $form];
         }
-
 
         $form->setData($request->getPost());
 
-        if (! $form->isValid()) {
-            return [ 'form' => $form ];
+        if (!$form->isValid()) {
+            return ['form' => $form];
         }
 
         $dealer = new Dealer();
         $dealer->exchangeArray($form->getData());
         $this->dealerService->saveDealer($dealer);
+
         return $this->redirect()->toRoute('dealer');
     }
 
@@ -68,16 +68,16 @@ class DealerController extends AbstractActionController
         $id = (int) $this->params()->fromRoute('id', 0);
 
         if (0 === $id) {
-            return $this->redirect()->toRoute('dealer', [ 'action' => 'add' ]);
+            return $this->redirect()->toRoute('dealer', ['action' => 'add']);
         }
 
         try {
             $dealer = $this->dealerService->getDealer($id);
         } catch (\Exception $e) {
-            return $this->redirect()->toRoute('dealer', [ 'action' => 'index' ]);
+            return $this->redirect()->toRoute('dealer', ['action' => 'index']);
         }
 
-        if(!$dealer){
+        if (!$dealer) {
             return $this->redirect()->toRoute('dealer');
         }
 
@@ -88,19 +88,19 @@ class DealerController extends AbstractActionController
         $request = $this->getRequest();
         $viewData = ['id' => $id, 'form' => $form];
 
-        if (! $request->isPost()) {
+        if (!$request->isPost()) {
             return $viewData;
         }
 
         $form->setData($request->getPost());
 
-        if (! $form->isValid()) {
+        if (!$form->isValid()) {
             return $viewData;
         }
 
         $this->dealerService->saveDealer($dealer);
 
-        return $this->redirect()->toRoute('dealer', [ 'action' => 'index' ]);
+        return $this->redirect()->toRoute('dealer', ['action' => 'index']);
     }
 
     public function deleteAction()
@@ -113,17 +113,15 @@ class DealerController extends AbstractActionController
         $request = $this->getRequest();
         $dealer = $this->dealerService->getDealer($id);
 
-        if(!$dealer){
+        if (!$dealer) {
             return $this->redirect()->toRoute('dealer');
         }
 
         if (!$request->isPost()) {
-
             return [
-                'id'    => $id,
+                'id'     => $id,
                 'dealer' => $dealer,
             ];
-
         }
 
         $del = $request->getPost('del', 'No');
@@ -165,8 +163,8 @@ class DealerController extends AbstractActionController
         return $this->redirect()->toRoute('dealer');
     }
 
-    public function importgdriveAction(){
-
+    public function importgdriveAction()
+    {
         $request = $this->getRequest();
         if (!$request->isPost()) {
             return;
@@ -185,14 +183,15 @@ class DealerController extends AbstractActionController
         $result = $this->dealerService->export();
 
         $response = $this->getEvent()->getResponse();
-        $response->getHeaders()->clearHeaders()->addHeaders( array(
-            'Pragma' => 'public',
-            'Content-Type' => 'application/vnd.ms-excel',
-            'Content-Disposition' => 'attachment; filename="dealers.xls"',
-            'Cache-Control' => 'must-revalidate, post-check=0, pre-check=0',
+        $response->getHeaders()->clearHeaders()->addHeaders([
+            'Pragma'                    => 'public',
+            'Content-Type'              => 'application/vnd.ms-excel',
+            'Content-Disposition'       => 'attachment; filename="dealers.xls"',
+            'Cache-Control'             => 'must-revalidate, post-check=0, pre-check=0',
             'Content-Transfer-Encoding' => 'binary',
-        ) );
+        ]);
         $response->setContent($result);
+
         return $response;
     }
 }

@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: ismail
  * Date: 2-2-17
- * Time: 14:13
+ * Time: 14:13.
  */
 
 namespace Application\Form;
@@ -12,8 +12,8 @@ use Zend\Filter\StringTrim;
 use Zend\Filter\StripTags;
 use Zend\Filter\ToInt;
 use Zend\Form\Form;
-use Zend\Validator\StringLength;
 use Zend\InputFilter;
+use Zend\Validator\StringLength;
 
 class DealerForm extends Form
 {
@@ -31,36 +31,36 @@ class DealerForm extends Form
             'type' => 'hidden',
         ]);
         $this->add([
-            'name' => 'name',
-            'type' => 'text',
+            'name'    => 'name',
+            'type'    => 'text',
             'options' => [
                 'label' => 'Name',
             ],
         ]);
         $this->add([
-            'name' => 'city',
-            'type' => 'text',
+            'name'    => 'city',
+            'type'    => 'text',
             'options' => [
                 'label' => 'City',
             ],
         ]);
         $this->add([
-            'name' => 'meta1',
-            'type' => 'text',
+            'name'    => 'meta1',
+            'type'    => 'text',
             'options' => [
                 'label' => 'Meta1',
             ],
         ]);
         $this->add([
-            'name' => 'meta2',
-            'type' => 'text',
+            'name'    => 'meta2',
+            'type'    => 'text',
             'options' => [
                 'label' => 'Meta2',
             ],
         ]);
         $this->add([
-            'name' => 'submit',
-            'type' => 'submit',
+            'name'       => 'submit',
+            'type'       => 'submit',
             'attributes' => [
                 'value' => 'Go',
                 'id'    => 'submitbutton',
@@ -73,52 +73,51 @@ class DealerForm extends Form
         $inputFilter = new InputFilter\InputFilter();
 
         $inputFilter->add([
-            'name' => 'id',
+            'name'     => 'id',
             'required' => true,
-            'filters' => [
+            'filters'  => [
                 ['name' => ToInt::class],
             ],
         ]);
 
         $inputFilter->add([
-            'name' => 'name',
+            'name'     => 'name',
             'required' => true,
-            'filters' => [
+            'filters'  => [
                 ['name' => StripTags::class],
                 ['name' => StringTrim::class],
             ],
             'validators' => [
                 [
-                    'name' => StringLength::class,
+                    'name'    => StringLength::class,
                     'options' => [
                         'encoding' => 'UTF-8',
-                        'min' => 1,
-                        'max' => 100,
+                        'min'      => 1,
+                        'max'      => 100,
                     ],
                 ],
             ],
         ]);
 
         $inputFilter->add([
-            'name' => 'city',
+            'name'     => 'city',
             'required' => true,
-            'filters' => [
+            'filters'  => [
                 ['name' => StripTags::class],
                 ['name' => StringTrim::class],
             ],
             'validators' => [
                 [
-                    'name' => StringLength::class,
+                    'name'    => StringLength::class,
                     'options' => [
                         'encoding' => 'UTF-8',
-                        'min' => 1,
-                        'max' => 100,
+                        'min'      => 1,
+                        'max'      => 100,
                     ],
                 ],
             ],
         ]);
 
         $this->setInputFilter($inputFilter);
-
     }
 }

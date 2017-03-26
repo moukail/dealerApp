@@ -3,15 +3,15 @@
  * Created by PhpStorm.
  * User: ismail
  * Date: 2-2-17
- * Time: 13:45
+ * Time: 13:45.
  */
 
 namespace Application\Factory;
 
 use Application\Service\DealerService;
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
 use Zend\Cache\StorageFactory;
+use Zend\ServiceManager\Factory\FactoryInterface;
 
 class DealerServiceFactory implements FactoryInterface
 {
@@ -21,17 +21,17 @@ class DealerServiceFactory implements FactoryInterface
 
         $cache = StorageFactory::factory([
             'adapter' => [
-                'name' => 'redis',
+                'name'    => 'redis',
                 'options' => [
                     'namespace' => 'appCache',
-                    'database' => 'dealer',
-                    'server' => ['host' => 'redis2', 'port' => '6379', 'timeout' => 300],
+                    'database'  => 'dealer',
+                    'server'    => ['host' => 'redis2', 'port' => '6379', 'timeout' => 300],
                 ],
             ],
             'plugins' => [
                 // Don't throw exceptions on cache errors
                 'exception_handler' => [
-                    'throw_exceptions' => false
+                    'throw_exceptions' => false,
                 ],
             ],
         ]);

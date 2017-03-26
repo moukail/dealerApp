@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Imoukafih
  * Date: 9-2-2017
- * Time: 16:18
+ * Time: 16:18.
  */
 
 namespace Application\Factory;
@@ -19,6 +19,7 @@ class RedisFactory implements FactoryInterface
 
         $redis = new \Redis();
         $redis->connect($params['host'], $params['port']);
+
         return $redis;
     }
 }

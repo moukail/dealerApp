@@ -1,6 +1,7 @@
 <?php
 /**
  * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ *
  * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
@@ -19,11 +20,11 @@ class Module implements
 
     public function getConfig()
     {
-        return include __DIR__ . '/../config/module.config.php';
+        return include __DIR__.'/../config/module.config.php';
     }
 
     /**
-     * This method is defined in ConsoleBannerProviderInterface
+     * This method is defined in ConsoleBannerProviderInterface.
      */
     public function getConsoleBanner(Console $console)
     {
@@ -31,7 +32,7 @@ class Module implements
     }
 
     /**
-     * This method is defined in ConsoleUsageProviderInterface
+     * This method is defined in ConsoleUsageProviderInterface.
      */
     public function getConsoleUsage(Console $console)
     {

@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: ismail
  * Date: 03-02-17
- * Time: 21:11
+ * Time: 21:11.
  */
 
 namespace Application\Fixture;
-
 
 use Application\Entity\Dealer;
 use Doctrine\Common\DataFixtures\FixtureInterface;

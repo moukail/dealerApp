@@ -1,6 +1,7 @@
 <?php
 /**
  * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
+ *
  * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
@@ -15,7 +16,7 @@ return [
     'router' => [
         'routes' => [
             'home' => [
-                'type' => Literal::class,
+                'type'    => Literal::class,
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
@@ -37,7 +38,7 @@ return [
             'dealer' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route' => '/dealer[/:action[/:id]]',
+                    'route'       => '/dealer[/:action[/:id]]',
                     'constraints' => [
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
@@ -53,17 +54,17 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
+            Controller\IndexController::class  => InvokableFactory::class,
             Controller\DealerController::class => 'Application\Factory\DealerControllerFactory',
         ],
     ],
 
     'service_manager' => [
         'factories' => [
-            __NAMESPACE__ . '\Cache\Redis' => __NAMESPACE__ . '\Factory\RedisFactory',
+            __NAMESPACE__.'\Cache\Redis'            => __NAMESPACE__.'\Factory\RedisFactory',
             'doctrine.sql_logger_collector.other_orm' => new \DoctrineORMModule\Service\SQLLoggerCollectorFactory('orm_default'),
-            'Application\Service\Dealer' => 'Application\Factory\DealerServiceFactory',
-        ]
+            'Application\Service\Dealer'              => 'Application\Factory\DealerServiceFactory',
+        ],
     ],
 
     'view_manager' => [
@@ -72,22 +73,22 @@ return [
         'doctype'                  => 'HTML5',
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
-        'template_map' => [
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+        'template_map'             => [
+            'layout/layout'           => __DIR__.'/../view/layout/layout.phtml',
+            'application/index/index' => __DIR__.'/../view/application/index/index.phtml',
+            'error/404'               => __DIR__.'/../view/error/404.phtml',
+            'error/index'             => __DIR__.'/../view/error/index.phtml',
         ],
         'template_path_stack' => [
-            __DIR__ . '/../view',
+            __DIR__.'/../view',
         ],
     ],
 
     'doctrine' => [
         'cache' => [
             'redis' => [
-                'namespace' => __NAMESPACE__ . '_Doctrine',
-                'instance'  => __NAMESPACE__ . '\Cache\Redis',
+                'namespace' => __NAMESPACE__.'_Doctrine',
+                'instance'  => __NAMESPACE__.'\Cache\Redis',
             ],
         ],
     ],

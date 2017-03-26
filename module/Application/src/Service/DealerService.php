@@ -3,20 +3,18 @@
  * Created by PhpStorm.
  * User: ismail
  * Date: 2-2-17
- * Time: 13:43
+ * Time: 13:43.
  */
 
 namespace Application\Service;
 
 use Application\Entity\Dealer;
 use Doctrine\ORM\EntityManager;
-use Zend\Http\Client;
 
 class DealerService
 {
-
     /**
-     * @var EntityManager $entitymanager
+     * @var EntityManager
      */
     private $entitymanager;
 
@@ -24,22 +22,21 @@ class DealerService
 
     /**
      * FeedService constructor.
+     *
      * @param EntityManager $entitymanager
      */
     public function __construct(EntityManager $entitymanager, $cache)
     {
         $this->entitymanager = $entitymanager;
         $this->cache = $cache;
-
     }
-
 
     /**
      * @param Dealer $dealer
      */
     public function saveDealer($dealer)
     {
-        $dealer2 = $this->entitymanager->getRepository('Application\Entity\Dealer')->findOneBy(array('id' => $dealer->getId()));
+        $dealer2 = $this->entitymanager->getRepository('Application\Entity\Dealer')->findOneBy(['id' => $dealer->getId()]);
         if (!$dealer2) {
             $this->entitymanager->persist($dealer);
         }
@@ -61,6 +58,7 @@ class DealerService
 
     /**
      * @param $id
+     *
      * @return null|object
      */
     public function getDealer($id)
@@ -73,9 +71,9 @@ class DealerService
      */
     public function findAllDealers()
     {
-        $key    = 'find-all-dealers';
+        $key = 'find-all-dealers';
         $result = $cache->getItem($key, $success);
-        if (! $success) {
+        if (!$success) {
             $result = $this->entitymanager->getRepository('Application\Entity\Dealer')->findAll();
             $cache->setItem($key, $result);
         }
@@ -91,7 +89,7 @@ class DealerService
         $stack = [];
 
         $result = $this->findAllDealers();
-        foreach ($result as $key => $value){
+        foreach ($result as $key => $value) {
             array_push($stack, $result[$key]->getArrayCopy());
         }
 
@@ -106,7 +104,6 @@ class DealerService
         $objWriter->save('php://output');
 
         return ob_get_clean();
-
     }
 
     /**
@@ -120,8 +117,8 @@ class DealerService
             $inputFileType = \PHPExcel_IOFactory::identify($inputFileName);
             $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
             $objPHPExcel = $objReader->load($inputFileName);
-        } catch(\Exception $e) {
-            echo 'Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage();
+        } catch (\Exception $e) {
+            echo 'Error loading file "'.pathinfo($inputFileName, PATHINFO_BASENAME).'": '.$e->getMessage();
         }
 
         // TODO refactoring and header check
@@ -131,9 +128,9 @@ class DealerService
         $highestColumn = $sheet->getHighestColumn();
 
         //  Loop through each row of the worksheet in turn
-        for ($row = 2; $row <= $highestRow; $row++){
+        for ($row = 2; $row <= $highestRow; $row++) {
             //  Read a row of data into an array
-            $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);
+            $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColumn.$row, null, true, false);
 
             $dealer = new Dealer();
             $dealer->setName($rowData[0][0]);
@@ -155,13 +152,13 @@ class DealerService
         // docker-compose run web2 curl --header "Authorization: Bearer ya29.GlzxA32KfX69gkULfC9WIs105_oUucdF324PL3SYQoR9ZBUO_Mcn7CBZWxU5CA-xd4pgDXITaN3IBX7c5FwugAp33xfHxbOTyTmF_3qGA3wIsssd1Vg-_NN9cRbD-g" https://www.googleapis.com/drive/v3/files/0B7IYCRyGKuBNdGhPMDA1Nl9RZkU?alt=media -o /var/www/symfony.xls
 
         //$info = pathinfo($filename);
-        $filename = 'dealers' . uniqid('_') . '.xls';
+        $filename = 'dealers'.uniqid('_').'.xls';
 
-        $fp = fopen ('/var/www/data/uploads/' . $filename, 'x+');
+        $fp = fopen('/var/www/data/uploads/'.$filename, 'x+');
         $ch = curl_init();
         // set url
-        curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/drive/v3/files/" . $fileId . "?alt=media");
-        curl_setopt($ch,CURLOPT_HTTPHEADER,array('Authorization: Bearer ' . $token));
+        curl_setopt($ch, CURLOPT_URL, 'https://www.googleapis.com/drive/v3/files/'.$fileId.'?alt=media');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer '.$token]);
         curl_setopt($ch, CURLOPT_FILE, $fp);
         // $output contains the output string
         $output = curl_exec($ch);
@@ -169,10 +166,8 @@ class DealerService
         // close curl resource to free up system resources
         curl_close($ch);
 
-
-        $this->import('/var/www/data/uploads/' . $filename);
+        $this->import('/var/www/data/uploads/'.$filename);
 
         return ['status' => 'succes'];
     }
-
 }

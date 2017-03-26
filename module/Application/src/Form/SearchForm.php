@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: ismail
  * Date: 04-02-17
- * Time: 01:39
+ * Time: 01:39.
  */
 
 namespace Application\Form;
@@ -24,8 +24,8 @@ class SearchForm extends Form
     public function addElements()
     {
         $this->add([
-            'type' => Element\Search::class,
-            'name' => 'search',
+            'type'    => Element\Search::class,
+            'name'    => 'search',
             'options' => [
                 'label' => 'Search',
             ],
