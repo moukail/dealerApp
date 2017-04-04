@@ -7,9 +7,11 @@ services:
     #entrypoint: ./docker/docker-entrypoint.sh
     #command: bash -c "composer update && composer development-enable && php public/index.php orm:schema-tool:update --dump-sql --force && /usr/bin/apachectl -D FOREGROUND"
     container_name: web2
+    networks:
+      - local
     ports:
-      - "84:80"
-      - "444:443"
+      - "82:80"
+      - "442:443"
     links:
       - mysql2
       - redis2
@@ -20,10 +22,13 @@ services:
   mysql2:
     image: mysql:5.7.17
     container_name: mysql2
+    networks:
+      - local
     ports:
       - "3302:3306"
     volumes:
       - mysql2:/var/lib/mysql
+      - ./docker/data:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: dealerapp
@@ -36,17 +41,10 @@ services:
     ports:
       - "6379:6379"
 
-  blackfire2:
-    image: blackfire/blackfire
-    container_name: blackfire2
-    environment:
-      # Exposes the host BLACKFIRE_SERVER_ID and TOKEN environment variables.
-      - BLACKFIRE_SERVER_ID=57961115-e0e3-4e85-acf0-683213488374
-      - BLACKFIRE_SERVER_TOKEN=20d05fdb176146c69195247730a281dd82fda6026c93c21d779b5c35d720e2d9
-      # You can also use global environment credentials :
-      # BLACKFIRE_SERVER_ID: SERVER-ID
-      # BLACKFIRE_SERVER_TOKEN: SERVER-TOKEN
-
 volumes:
   mysql2:
     driver: local
+
+networks:
+  local:
+    driver: bridge

@@ -1056,21 +1056,21 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.1.2",
+            "version": "v2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "360e656f48c3262a6f7fefc0207521efa66caedf"
+                "reference": "43996f09df274158fd04fce98e8a82effe5f3717"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/360e656f48c3262a6f7fefc0207521efa66caedf",
-                "reference": "360e656f48c3262a6f7fefc0207521efa66caedf",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/43996f09df274158fd04fce98e8a82effe5f3717",
+                "reference": "43996f09df274158fd04fce98e8a82effe5f3717",
                 "shasum": ""
             },
             "require": {
                 "firebase/php-jwt": "~2.0|~3.0|~4.0",
-                "google/apiclient-services": "^0.9",
+                "google/apiclient-services": "^0.11",
                 "google/auth": "^0.11",
                 "guzzlehttp/guzzle": "~5.2|~6.0",
                 "guzzlehttp/psr7": "^1.2",
@@ -1111,24 +1111,27 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-01-11T19:44:46+00:00"
+            "time": "2017-03-22T18:32:04+00:00"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.9",
+            "version": "v0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client-services.git",
-                "reference": "c400c655d1b7ca412ad4dd344e569c6865e74a83"
+                "reference": "48c554aee06f2fd5700d7bdfa4fa6b82d184eb52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/c400c655d1b7ca412ad4dd344e569c6865e74a83",
-                "reference": "c400c655d1b7ca412ad4dd344e569c6865e74a83",
+                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/48c554aee06f2fd5700d7bdfa4fa6b82d184eb52",
+                "reference": "48c554aee06f2fd5700d7bdfa4fa6b82d184eb52",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "autoload": {
@@ -1145,7 +1148,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2017-01-11T18:53:21+00:00"
+            "time": "2017-03-13T17:40:44+00:00"
         },
         {
             "name": "google/auth",
@@ -1310,16 +1313,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/0d6c7ca039329247e4f0f8f8f6506810e8248855",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -1371,7 +1374,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-02-27T10:51:17+00:00"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3638,27 +3641,27 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.8.2",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436"
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/99b528e01276054458da9553b587cfb959dfa436",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/b71641582297eab52753b72cd4eb45a5ded4485c",
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c",
                 "shasum": ""
             },
             "require": {
                 "container-interop/container-interop": "^1.1",
-                "php": "^5.5 || ^7.0",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-stdlib": "^2.7.6 || ^3.1"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.0",
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
                 "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-config": "^2.6",
                 "zendframework/zend-db": "^2.7",
                 "zendframework/zend-filter": "^2.6",
@@ -3670,20 +3673,20 @@
                 "zendframework/zend-uri": "^2.5"
             },
             "suggest": {
-                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-db": "Zend\\Db component, required by the (No)RecordExists validator",
                 "zendframework/zend-filter": "Zend\\Filter component, required by the Digits validator",
-                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages as well as to use the various Date validators",
+                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages",
                 "zendframework/zend-i18n-resources": "Translations of validator messages",
-                "zendframework/zend-math": "Zend\\Math component",
+                "zendframework/zend-math": "Zend\\Math component, required by the Csrf validator",
                 "zendframework/zend-servicemanager": "Zend\\ServiceManager component to allow using the ValidatorPluginManager and validator chains",
-                "zendframework/zend-session": "Zend\\Session component",
+                "zendframework/zend-session": "Zend\\Session component, required by the Csrf validator",
                 "zendframework/zend-uri": "Zend\\Uri component, required by the Uri and Sitemap\\Loc validators"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.9-dev",
+                    "dev-develop": "2.10-dev"
                 },
                 "zf": {
                     "component": "Zend\\Validator",
@@ -3705,33 +3708,33 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2017-01-29T17:24:24+00:00"
+            "time": "2017-03-17T10:15:50+00:00"
         },
         {
             "name": "zendframework/zend-view",
-            "version": "2.8.1",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-view.git",
-                "reference": "71b4ebd0c4c9a2d0e0438f9d3a435e08dd769ff8"
+                "reference": "3b6342c381c4437a03fc81d0064c0bb8924914d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/71b4ebd0c4c9a2d0e0438f9d3a435e08dd769ff8",
-                "reference": "71b4ebd0c4c9a2d0e0438f9d3a435e08dd769ff8",
+                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/3b6342c381c4437a03fc81d0064c0bb8924914d3",
+                "reference": "3b6342c381c4437a03fc81d0064c0bb8924914d3",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
+                "php": "^5.6 || ^7.0",
                 "zendframework/zend-eventmanager": "^2.6.2 || ^3.0",
                 "zendframework/zend-loader": "^2.5",
                 "zendframework/zend-stdlib": "^2.7 || ^3.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.5",
+                "phpunit/phpunit": "^5.7.15 || ^6.0.8",
                 "zendframework/zend-authentication": "^2.5",
                 "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-config": "^2.6",
                 "zendframework/zend-console": "^2.6",
                 "zendframework/zend-escaper": "^2.5",
@@ -3773,8 +3776,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.9-dev",
+                    "dev-develop": "3.0-dev"
                 }
             },
             "autoload": {
@@ -3792,7 +3795,7 @@
                 "view",
                 "zf2"
             ],
-            "time": "2016-06-30T22:28:07+00:00"
+            "time": "2017-03-21T15:05:56+00:00"
         },
         {
             "name": "zfcampus/zf-development-mode",
@@ -4347,16 +4350,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.16",
+            "version": "5.7.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dafc78e2a7d12139b0e97078d1082326bd09363d"
+                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dafc78e2a7d12139b0e97078d1082326bd09363d",
-                "reference": "dafc78e2a7d12139b0e97078d1082326bd09363d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/68752b665d3875f9a38a357e3ecb35c79f8673bf",
+                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf",
                 "shasum": ""
             },
             "require": {
@@ -4425,7 +4428,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-15T13:02:34+00:00"
+            "time": "2017-03-19T16:52:12+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

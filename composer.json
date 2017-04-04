@@ -31,8 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Application\\": "module/Application/src/",
-            "QualityImport\\": "module/QualityImport/src/"
+            "Application\\": "module/Application/src/"
         }
     },
     "autoload-dev": {

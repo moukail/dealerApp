@@ -25,5 +25,4 @@ return [
     'DoctrineModule',
     'DoctrineORMModule',
     'Application',
-    'QualityImport',
 ];

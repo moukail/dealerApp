@@ -25,6 +25,7 @@ class DealerService
     /**
      * FeedService constructor.
      * @param EntityManager $entitymanager
+     * @param $cache
      */
     public function __construct(EntityManager $entitymanager, $cache)
     {

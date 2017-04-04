@@ -45,9 +45,9 @@ return [
 
         'migrations_configuration' => [
             'orm_default' => [
-                'directory' => __DIR__ . '/../../module/QualityImport/config/migrations',
+                'directory' => __DIR__ . '/../../module/Application/config/migrations',
                 'name'      => 'Doctrine Database Migrations',
-                'namespace' => 'QualityImport\Migrations',
+                'namespace' => 'Application\Migrations',
                 'table'     => 'migrations',
                 'column'    => 'version',
             ],
@@ -61,18 +61,10 @@ return [
                     __DIR__ . '/../../module/Application/src/Entity'
                 ]
             ],
-            'Qimport_Driver' => [
-                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'array',
-                'paths' => [
-                    __DIR__ . '/../../module/QualityImport/src/Entity'
-                ]
-            ],
             'orm_default' => [
                 'class'   => 'Doctrine\ORM\Mapping\Driver\DriverChain',
                 'drivers' => [
-                    'Application\Entity' =>  'Dealer_Driver',
-                    'QualityImport\Entity' =>  'Qimport_Driver',
+                    'Application\Entity' =>  'Dealer_Driver'
                 ]
             ],
         ],
