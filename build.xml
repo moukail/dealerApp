@@ -4,6 +4,16 @@
         <echo msg="unittest '${project.basedir}' " />
     </target>
 
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <apply executable="../vendor/bin/phpunit" parallel="false">
+            <fileset dir="${env.WORKSPACE}/module" >
+                <include name="**/test/phpunit.xml"/>
+            </fileset>
+            <arg value="--configuration" />
+            <srcfile/>
+        </apply>
+    </target>
+
     <target name="zpk" depends="unittest">
         <echo msg="zpk" />
     </target>
@@ -20,5 +30,7 @@
         <echo msg="deploy '${password}'" />
         <echo msg="deploy '${params}'" />
     </target>
+
+
 
 </project>

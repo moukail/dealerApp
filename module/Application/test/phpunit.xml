@@ -1,0 +1,21 @@
+<phpunit bootstrap="Bootstrap.php">
+    <testsuites>
+        <testsuite name="Application">
+            <directory>./</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Filters only matter for code coverage reporting -->
+    <filter>
+        <blacklist>
+            <directory>../../../vendor/</directory>
+            <directory>./</directory>
+            <file>../Module.php</file>
+        </blacklist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="../../../build/coverage" title="Application Module" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-clover" target="../../../build/logs/clover-Application.xml"/>
+        <log type="junit" target="../../../build/logs/junit-Application.xml" logIncompleteSkipped="false"/>
+    </logging>
+</phpunit>
