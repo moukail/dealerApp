@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="WEB_MODULE" version="4">
+<module version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/module/Application/test" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/module/Application/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor" />
-    </content>
-    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-  <component name="sonarModuleSettings">
-    <option name="localAnalysisScripName" value="&lt;PROJECT&gt;" />
-    <option name="serverName" value="&lt;PROJECT&gt;" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../moukafih/vendor" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../moukafih/vendor" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/../moukafih/vendor/phpmetrics/phpmetrics/build/phpmetrics.phar/" />
+          <root url="phar://$MODULE_DIR$/../moukafih/vendor/phpmetrics/phpmetrics/releases/phpmetrics.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/../moukafih/vendor/phpmetrics/phpmetrics/build/phpmetrics.phar/" />
+          <root url="phar://$MODULE_DIR$/../moukafih/vendor/phpmetrics/phpmetrics/releases/phpmetrics.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
