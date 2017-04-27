@@ -8,25 +8,25 @@ image: moukail/centos7-apache2.4-php7.1
 pipelines:
   default:
     - step:
-      script: # Modify the commands below to build your repository.
-        - composer install
+        script: # Modify the commands below to build your repository.
+          - composer install
 
   branches:
     master:
       - step:
-        script:
-          - echo "This is master branche"
+          script:
+            - echo "This is master branche"
     develop:
       - step:
-        script:
-          - echo "This is develop branche"
+          script:
+            - echo "This is develop branche"
 
   custom: # Pipelines that are triggered manually
     sonar: # The name that is displayed in the list in the Bitbucket Cloud GUI
       - step:
-        script:
-          - echo "Manual triggers for Sonar Qube are awesome!"
+          script:
+            - echo "Manual triggers for Sonar Qube are awesome!"
     deployment-to-prod: # Another display name
       - step:
-        script:
-          - echo "Manual triggers for deployments are awesome!"
+          script:
+            - echo "Manual triggers for deployments are awesome!"
