@@ -25,7 +25,7 @@ pipelines:
     sonar: # The name that is displayed in the list in the Bitbucket Cloud GUI
       - step:
         script:
-          - echo "Manual triggers for Sonar are awesome!"
+          - echo "Manual triggers for Sonar Qube are awesome!"
     deployment-to-prod: # Another display name
       - step:
         script:
