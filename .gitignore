@@ -26,3 +26,13 @@ data/DoctrineORMModule/cache/
 
 
 !data/cache/.gitkeep
+.DS_Store
+access.log
+config/.DS_Store
+data/.DS_Store
+docker/.DS_Store
+error.log
+module/.DS_Store
+public/.DS_Store
+swapfile
+vagrant/.DS_Store
